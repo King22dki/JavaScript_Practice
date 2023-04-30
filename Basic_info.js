@@ -206,9 +206,138 @@ var myStr = " I am a double \" double quoted\" string inside\"double quotes"
 
 */
 
-var myStr = "Firstline\n\t\\SecondLine\n\ThirdLine"
+// Example of using said 
+
+var myStr = "Firstline\n\t\\SecondLine\n\t\\ThirdLine"
 
 // Concatenating Strings with Plus Operator
+
+// Example: Method 1
+
+var ourStr = "I come first." + "I come second.";
+
+console.log(ourStr)
+
+var ourStr = "I come first.";
+ourStr += "I come second";
+
+console.log(ourStr)
+
+// Concatenating Strings with Variables
+
+//Example
+
+var myName = "King";
+var myStr = "Hello, my name is " + ourName + ", how are you?";
+
+console.log(myStr);
+
+// Appending Variable with strings
+
+// Example
+
+var anAdjective = "awesome!";
+var myStr = "King is";
+myStr += anAdjective;
+
+// Find Length of String
+
+// Example 
+
+var firstNameLength = 0;
+var firstName = "Ada";
+
+firstNameLength = firstName.length;
+
+console.log(firstNameLength)
+
+// setup 
+var lastNameLength = 0;
+var lastName = "Lovelace";
+
+lastNameLength = lastName.length;
+
+console.log(lastNameLength)
+
+// Bracket Notation to Find First Character in String
+
+// Example 
+
+var firstLetterOfFirstName = "";
+var firstName = "Ada";
+
+firstLetterOfFirstName = firstName[0];
+
+console.log(firstLetterOfFirstName)
+
+// Bracket Notation to Find Nth Character in String
+
+// Setup
+
+var secondLetterOfLastName = "";
+
+secondLetterOfLastName = lastName[1];
+
+console.log(secondLetterOfLastName)
+
+// String Immutability
+
+// Immutability - something incapable of change
+
+// Setup
+
+var myStr = "Jello World";
+ 
+myStr[0] = "H"; // this cannot be a solution to the problem due to the immutability of strings
+
+myStr = "Hello World";
+
+// Bracket Notation to Find Last Character in String
+
+// Example 1
+
+var lastLetterOfFirstName = firstName[firstName.length - 1];
+
+console.log(lastLetterOfFirstName)
+
+// Example 2
+
+var lastLetterOfLastName = lastName[lastName.length - 1];
+
+console.log(lastLetterOfLastName)
+
+// Bracket Notation to Find Nth - to - Last Character in String
+
+// Example 1
+
+var secondLastLetterOfFirstName = firstName[firstName.length - 2];
+
+console.log(secondLastLetterOfFirstName)
+
+// Example 2
+
+var thirdLastLetterOfLastName = lastName[lastName.length - 3];
+
+console.log(thirdLastLetterOfLastName)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
