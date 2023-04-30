@@ -84,6 +84,20 @@ var thirdLastLetterOfLastName = lastName[lastName.length - 3];
 
 console.log(thirdLastLetterOfLastName)
 
+// Word Blanks - MadLib game
 
+function wordBlanks(myNoun, myAdjective, myVerb, myAdverb) {
+    // Empty String
+    var result = "";
+    result += "The " + myAdjective + " " + myNoun  + " " + myVerb + " to the store " + myAdverb;
+    // Result
+    return result;
+}
+
+
+// Change the words here to test your function
+
+console.log(wordBlanks("dog", "big", "ran", "quickly"));
+console.log(wordBlanks("dress", "furry", "skipping", "ghostly"));
 
 </script>
