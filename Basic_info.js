@@ -337,6 +337,29 @@ console.log(wordBlanks("dress", "furry", "skipping", "ghostly"));
 
 // Store Multiple Values with Arrays
 
+/* Arrays allow you to store several pieces of data in one place.
+The elements of an array can be various types data, even an array as well.
+*/
+
+// Example
+
+var ourArray = ["John", 23];
+
+var myArray = ["Quincy", 1];
+
+// Nested Array 
+
+/* When one of the elements of the array is an array, we call it a nested array.
+Also known as a multi-dimensional array. */
+
+// Example
+var ourArray = [["The universe", 42], ["everything", 101010]];
+
+// Access Array Data with Indexes
+
+
+
+
 
 
 
