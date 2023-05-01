@@ -760,6 +760,26 @@ function testNotEqual(val){
 
 console.log(testNotEqual(10)) // Not Equal
 
+/* Comparison with the Strict Inequality Operator
+
+    The strict inequality operator is basically the oppiste of the strict equality 
+    operator. Just like the strict equality operator it also does not do type 
+    conversion.
+*/
+
+function testStrictNotEqual(val){
+
+    if (val !== 17) {
+        return "Not Equal"
+    }
+    return "Not Equal"
+}
+
+console.log(testStrictNotEqual(17)); // Equal 
+console.log(testStrictNotEqual("17")); // Not Equal
+
+
+
 
 
 
