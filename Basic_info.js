@@ -520,10 +520,245 @@ myLocalScope(); // output 5
 
 // Global vs. Local Scope in Functions
 
+/* It is possible to have both local and global variables with the same 
+   name. In this case the local variable takes precedent over the global 
+   variable.
+*/
 
+// Example
 
+var outerWear = "T-Shirt";  // GLobal variable
 
+function myOutfit(){
+    var outerWear = "sweater";
 
+    return outerWear;
+}
+console.log(myOutfit()); // returns sweater
+console.log(outerWear); // gives T-shirt
+
+/* Notice, how the local variable within the local scope of the function
+   takes precedent over the global variable. However, if I was to call the 
+   variable outerWear outside of the local scope, it would give me T-shirt.
+*/
+
+// Return a Value from a Function with Return
+
+// Example
+
+function minusSeven(num){
+    return num -7;
+}
+
+console.log(minusSeven(10));
+
+console.log(Math.sqrt(4));
+
+console.log(2**2)
+ 
+/* Experimation of using function to create a quadratic formula solver
+   I had to declare three different variables.
+*/
+
+function quadraticEqSolver(a,b,c){
+    var x1 = ((-b + Math.sqrt((b**2)-(4*a*c)))/(2*a));
+
+    var x2 = ((-b - Math.sqrt((b**2)-(4*a*c)))/(2*a));
+
+    var result = "";
+
+    result += "x1" + " " + "=" + " " + x1 + " and " + "x2" + " " + "=" + " " + x2
+    return result
+}
+
+console.log(quadraticEqSolver(1, 9, 18));
+
+// This is the return I recieved from the debug console (x1 = -3 and x2 = -6).
+
+// Understanding Undefined Value Returned from a Function
+
+// Example
+
+var sum = 0;
+
+function addThree(){
+    sum = sum + 3;
+}
+console.log(addThree()) // Gives response undefined
+
+// It doesn't return anything
+
+// Assignment with a Returned Value
+
+var changed = 0;
+
+function change(num) {
+    return (num + 5) / 3;
+}
+changed = change(10);
+
+console.log(changed)
+
+/* We have assigned a returned value to a variable.
+   So we started off with the function change and you 
+   pass the number and it's going to return the result of this 
+   mathematical expression.
+   so when we call the function chnage and pass in the 10, the 
+   value that is returned from the function is going to be stord in 
+   the variable called changed.
+
+   Note: If anyone has a better idea of things, feel free to suggest how to rephrase
+   things, thank you.
+*/ 
+
+// Stand in Line
+
+/* In computer science a cue is an abstract data structure where items are kept 
+   in order. New items can be added to the back of the cue and old items are taken
+   off from the front of the cue.
+
+   Below we are going to simulate this behaviour, well at least some of the functionality
+   of a cue using this nextLine function.
+*/
+
+// Example
+
+/* In this function, we can add an item to the array that's passed in.
+   Then it returns the first item on the list.
+*/
+function nextInLine(arr, item){
+    arr.push(item)
+    return arr.shift();
+
+}
+
+var testArr = [1, 2, 3, 4, 5];
+
+// The JSON.stringify is just a way to change an array into a string that can be easily printed out into the console.
+
+console.log("Before: " + JSON.stringify(testArr)); // Before: [1,2,3,4,5]
+console.log(nextInLine(testArr, 6)); // 1
+console.log("After: " + JSON.stringify(testArr)); // After: [2,3,4,5,6]
+
+/* Boolean  Values:
+   Another type of datatype in Javascript.
+   They're basically on and off switches.
+*/
+
+function welcomeToBooleans(){
+    return true;
+}
+
+function welcomeToBooleans(){
+    return False;
+}
+
+/* Use Conditional Logic with If Statements
+
+   An if statement is used to make decisions in code.
+   The keyword if tells JavaScript to excute the code in the curly brackets
+   under certain conditions defined in the parenthesis.
+*/
+
+function ourTrueOrFalse(isItTrue){
+    if (isItTrue){
+        return "Yes, it's true";
+    }
+    return "No, it's false";
+}
+
+function trueOrFalse(wasThatTrue){
+    if (wasThatTrue){
+        return "Yes, that was true";
+    }
+    return "No, that was false";
+}
+
+console.log(trueOrFalse(true)); 
+console.log(trueOrFalse(false));
+
+/* Comparison with the Equality Operator
+
+   There are many comparison operators in JavaScript that will return a 
+   Boolean of true or false. The most common is the equality operator.
+   It is usually used in an if statement.
+*/
+
+//Example 
+
+function testEqual(val){
+    if (val == 12) { 
+        return "Equal";
+    }
+    return "Not Equal";
+}
+
+console.log(testEqual(10)); // Not Equal
+
+/* Comparison with the Strict Equality Operator
+   
+   We learnt about the equality operator "==", now we will learn about the 
+   strict equality operator "===". The difference between them is that "=="
+   attempts to convert both values being compared to common type while the 
+   strict equality operator does not do the type conversion.
+
+   so if we look at the case of 
+
+   3 === 3 this would evaluate to true
+   3 === "3" this would evaulate to false
+*/
+
+// Example
+
+function testStrict(val){
+    if (val === 7){
+        return "Equal";
+    }
+    return "Not Equal";
+}
+
+console.log(testStrict(7)); // Equal 
+console.log(testStrict("7")); // Not Equal
+
+// Practice Comparing Different Values
+
+// Example
+
+function comapareEquality(a, b){
+    if (a == b){
+        return "Equal";
+    }
+    return ("Not Equal");
+}
+
+/* The one above will allows to compare differnt types, while the one below
+   will allow us to compare only those of the same type.
+*/
+
+function comapareEqualityStrict(a, b){
+    if (a === b){
+        return "Equal";
+    }
+    return ("Not Equal");
+}
+
+console.log(comapareEquality(10, "10")); // Equal
+console.log(comapareEqualityStrict(10, "10")); // Not Equal
+
+/* Comparison with the Inequality Operator
+   
+   The inequality operator is basically the oppiste of the equality operator.
+   Just like the equality operator it also does type conversion.
+*/
+
+function testNotEqual(val){
+    if (val != 99){
+        return "Not Equal";
+    }
+    return "Equal";
+}
+
+console.log(testNotEqual(10)) // Not Equal
 
 
 
