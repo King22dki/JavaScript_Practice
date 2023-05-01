@@ -355,7 +355,190 @@ Also known as a multi-dimensional array. */
 // Example
 var ourArray = [["The universe", 42], ["everything", 101010]];
 
-// Access Array Data with Indexes
+// Access Array Data with Indexes 
+
+// Example 
+var ourArray = [50, 60, 70];
+var ourData = ourArray[0]; // equals 50
+
+console.log(ourArray)
+
+// Modify Array Data with Indexes
+
+ourArray[1] = 45; // ourArray now equals [50, 45, 70]
+
+console.log(ourArray)
+
+// Access Multi-Dimensional Arrays with Indexes
+
+// Setup
+var myArray = [[1,2,3], [4,5,6], [7,8,9], [[10, 11, 12], 13, 14] ];
+
+// Selecting 8
+var myData = myArray[2][1];
+
+console.log(myData)
+
+// Selecting 11
+var myData = myArray[3][0][1];
+
+console.log(myData)
+
+// Manipulate Arrays with push ()
+
+// Example 
+var ourArray = ["King", "Queen", "Jack"];
+ourArray.push(["K", "Q", "J"]);
+
+// ourArray now equals ["King", "Queen", "Jack", ["K", "Q", "J"] ]
+
+console.log(ourArray)
+
+// Manipulate Arrays with Pop
+
+var ourArray = [1,2,3];
+var removedFromOurArray = ourArray.pop();
+
+console.log(removedFromOurArray)
+console.log(ourArray)
+// removedFromOurArray now equals 3 and ourArray now equals [1,2]
+
+//Note to self: this concept here can be used in finished.
+
+// Manipulate Arrays with shift()
+/* Very similar to the pop() function but instead of removing the last
+element of the array it removes the first element of the array. */
+
+// Example
+
+var ourArray = ["King", "Queen", "Jack"];
+var removedFromOurArray = ourArray.shift(0);
+
+// removedFromOurArray now equals "King" and ourArray now equals ["Queen", "Jack"]
+
+console.log(removedFromOurArray)
+console.log(ourArray)
+
+// Manipulate Arrays with unshift()
+/* Very similar to the push() function but instead of added an
+element to the end of the  array, the unshift () the adds an element 
+at the start of the array. */
+
+// Example
+
+var ourArray = ["King", "Queen", "Jack"];
+ourArray.shift(); // ourArray now equals ["Queen", "Jack"]
+ourArray.unshift("Ace"); // ourArray now equals ["Ace", Queen", "Jack"]"]
+
+console.log(ourArray)
+
+// Shopping List: Another example of a nested Array
+
+var myList = [["cereal", 3], ["milk", 2], ["bananas", 3], ["juice", 2],["eggs", 3] ];
+
+// Write Reusable Code with Functions
+
+// Example
+
+function ourReusableFunction(){
+    console.log("Greetings, World");
+}
+
+ourReusableFunction();
+
+// Passing Values to Functions with Arguments
+/* Parameters are variables that act as place holders for the values
+   that are to be input to a function when it is called.  */
+
+// Example 1, a and b are parameters.
+
+function ourFunctionWithArgs(a, b){
+    console.log(a-b);
+}
+ourFunctionWithArgs(10,5); // Outputs 5
+ourFunctionWithArgs(45, 5);
+
+// Example 2
+function functionWithArgs(a, b){
+    console.log(a+b);
+}
+
+functionWithArgs(45, 5)
+
+/* Gloabal Scope and Functions
+   Scope refers to the visiblity of variables. Variables which are defined 
+   outside of a function block have global scope. Global scope means they can
+   be seen everywhere in your Javascript code.*/
+
+var myGlobal = 10;
+
+/* The absence of the var keyword means that the variable oopsGlobal is scoped
+   globally opposed to locally within the function.
+*/
+function fun1(){
+    oopsGlobal = 5;
+}
+
+/* We are using an if statement and we are checking if the type of myGlobal
+   does not equal undefined. Since we have declared myGloabal as a variable in global scope
+   we expect to get the follwoing result myGlobal: 10.
+*/
+function fun2(){
+    var output = ""
+    if (typeof myGlobal != "undefined"){
+        output += " myGlobal: " + myGlobal;
+    }
+    if (typeof oopsGlobal != "undefined"){
+        output += " oopsGlobal: " + oopsGlobal;
+    }
+    console.log(output);
+}
+
+/* In the case that both variables are globa, then we get the output of 
+   myGlobal: 10 oopsGlobal: 5
+*/
+fun1();
+fun2();
+
+// Local Scope and Functions
+
+/* Variables which are declared within a function as well as the function 
+   parameters have local scope. This means they're only visible within the
+   function.
+*/
+//Example 
+
+function myLocalScope(){
+    var myVar = 5;
+    console.log(myVar);
+}
+
+myLocalScope(); // output 5
+
+// This won't work becuase myVar is not global console.log(myVar);
+// Note: I am aware that I have declared myVar globally previously.
+
+// Global vs. Local Scope in Functions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
