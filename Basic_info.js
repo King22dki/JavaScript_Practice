@@ -770,25 +770,174 @@ console.log(testNotEqual(10)) // Not Equal
 function testStrictNotEqual(val){
 
     if (val !== 17) {
-        return "Not Equal"
+        return "Not Equal";
     }
-    return "Not Equal"
+    return "Not Equal";
 }
 
 console.log(testStrictNotEqual(17)); // Equal 
 console.log(testStrictNotEqual("17")); // Not Equal
 
+/* Comparisons with the Greater Than Operator
+   
+   I have left this here for more notes on useing the greater than operators.
+   
+*/
 
+function testGreaterThan(val){
+    if (val > 100){
+        return "Over 10";
+    }
+    if (val > 10){
+        return "Over 10";
+    }
 
+    return "10 or Under";
+}
 
+console.log(testGreaterThan(10)); // 10 or Under
 
+/* Comparisons with Greater Than Or Equal To Operator
 
+*/
 
+function testGreaterOrEqual(val){
+    if (val >= 20){
+        return "20 or Over";
+    }
 
+    if (val >= 10){
+        return "10 or over";
+    }
 
+    return "Less than 10";
+}
 
+console.log(testGreaterOrEqual(10)); // 10 Or Over
 
+// Comparison with the Less Than Operator
 
+function testLessThan(val){
+    if (val < 25){
+        return "Under 25";
+    }
+    
+    if (val < 55){
+        return "Under 55";
+    }
+
+    return "55 or Over";
+}
+
+console.log(testLessThan(10)); // Under 25
+
+// Comparison with the Less Than Or Equal To Operator
+
+function testLessOrEqual(val){
+    if (val <= 12){
+       return "Smaller Than or Equal to 12"; 
+    }
+
+    if (val <= 24){
+        return "Smaller Than or Equal to 24";
+    }
+
+    return "More Than 24";
+}
+
+console.log(testLessOrEqual(10));
+
+/* Comparisons with the Logical And Operator
+
+   This is used in the instance that I want to chec if two
+   things are the same at the same time.
+
+   Below we have an example to show an alternative to using an nested if
+   statement. We do this be using the And operator, &&.
+
+   25 >= x <= 50    ,   x >= 25 And x <= 50
+
+   The inequality I have shown above can also be considered a conjuction and 
+   thus can be rewritten in a form that has an And. 
+
+*/
+
+// Method 1: Nested If statement
+function testLogicalAnd_Nested(val){
+
+    if (val <=50){
+        if (val >= 25){
+            return "Yes";
+        }
+    }
+
+    return "No";
+}
+
+console.log(testLogicalAnd_Nested(10));
+
+function testLogicalAnd(val){
+    if (val <= 50 && val >= 25){
+        return "Yes";
+    }
+
+    return "No";
+}
+
+console.log(testLogicalAnd(10));
+
+// Both would produce the same result, it's just that one is easier to code.
+
+/* Comparisons with the Logical Or Operator
+
+   I am assuming what we are emulating in this case is like set notation:
+
+   x < 10 or x > 20
+
+   The mathmatical expression is an example of a disjunction, this statement is
+   only false when both statements are false.  
+
+*/
+
+function testLogicalOrIf(val){
+
+    if (val < 10){
+        return "Outside";
+    }
+
+    if (val > 20){
+        return "Outside";
+    }
+
+    return "Inside";
+}
+
+function testLogicalOr(val){
+
+    if (val < 10 || val > 20){
+        return "Outside";
+    }
+
+    return "Inside";
+}
+
+console.log(testLogicalOrIf(15));
+console.log(testLogicalOr(15));
+
+// The same result should be obtained from both of them.
+
+/* Else Statements
+   
+   When an If statement is true, normally the block of code right after the if 
+   statement will be evaluated. If it is not true, nothing happens.
+
+   The introduction of a Else statement, an altenrate of block of code can be excuted 
+   in the case of not true.
+*/
+
+function testElse(val){
+    
+}
 
 
 
