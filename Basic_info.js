@@ -1216,12 +1216,187 @@ function chainToSwitch(val){
 }
 
 /* Returning Boolean Values from Functions
+   Remeber all comparison operators return a boolean operations, that is why
+   example 1 may be written in the form of example 2. This means one can skip 
+   all the If statement logic.
+*/
+
+// Example 1: With If else statements
+
+function isLessIfVersion(a, b) {
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Example 2: Without If else statements.
+
+function isLess(a, b) {
+    return a < b;
+}
+
+// Both will yeild the same result
+
+console.log(isLessIfVersion (10, 15));
+console.log(isLess (10, 15));
+
+/* Returning Early Pattern from Functions
+   
+   We have gone through examples where we returned early from the functions.
 
 */
 
+function abTest(a, b) {
 
+    if (a < 0 || b < 0) {
+        return undefined;  // a < 0 or b < 0
+    }
+    
+    return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2)); // round((sqrt(a) + sqrt(b))^2)
+}
 
+console.log(abTest(2,2)); // 8
+console.log(abTest(2, -2)); // undefined
 
+/* Counting Cards
+
+   We are going to create a blackjack card counting function.
+   In the case of the function we are designing - card counting 
+   will operate in the follwoing way:
+
+   When you see a low card the count goes up.
+   When you see a high card the count goes down.
+   When you see a middle value card the count stays the same.
+   So then when the count is positive the player should bet high.
+   So when the count is 0 or negative the player should bet low.
+
+   Hence we are going to use a switch statemet to figure out what 
+   card has been passed in and what to do about it.
+
+   In the example the function is called cc and we pass in card  
+   and depending on what the card is, we are going to increase or decrease or keep the 
+   same  global count variable defined at the start of the code.
+
+   We're going to return two things count the global variable and then a 
+   local variable holdbet. The holdbet variable will tell the player which
+   hold or bet.
+   
+   This code could have be done in a myriad of ways, for example, in the form 
+   of If statements.
+
+   Notice how cases 7, 8, and 9 were omitted - this is because it would have resulted
+   in no change. 
+
+   Note: The ternary operator could be used as it is a short way of writing an If-else 
+   statement. It is called the conditional operator, and has the following syntax:
+
+   (condition) ? expression-if-true : expression-if-false;
+
+*/
+
+var count = 0
+
+function cc(card){
+    switch(card) {
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            count ++;
+            break;
+        case 10:
+        case "J":
+        case "Q":
+        case "K":
+        case "A":
+            count --;
+            break;
+    }
+
+    var holdbet = 'Hold'
+    if (count > 0){
+        holdbet = 'Bet'
+    }
+    return count + " " + holdbet;
+}
+
+cc(2); cc('K'); cc(10); cc(2);
+
+console.log(cc("Q"));
+console.log(cc("J"));
+console.log(cc(5));
+
+/* Build JavaScript Objects:
+
+   Objects are similar to arrays, except that instead of using 
+   indexes to access data, you use properties.
+
+   Objects are going to be defined with these curly braces at the 
+   begininning and the end. Porperties are everything before the colons
+   and the values are the things after the colon. The values can be any 
+   data type known in JavaScript.
+*/
+
+// Example - An example of an object
+
+var ourDog = { 
+    "name": "Bobo",
+    "legs": 4,
+    "tails": 2,
+    "friends":[]
+};
+
+/* Accessing Object Properties with Dot Notataion
+
+   There are two manin ways to access a property in an object. The method
+   we are using now is dot notataion.
+
+*/
+
+// Example - Dot Notataion
+
+var testObj = { 
+    "hat": "ballcap",
+    "shirt": "jersey",
+    "shoes": "cleats"
+};
+
+var hatValue = testObj.hat;
+var shirtValue = testObj.shirt;
+
+/* Accessing Object Properties with Bracket Notataion
+
+   You can use bracket notation anytime but it is required if the name 
+   has a space in it.
+
+*/
+
+var testObject = {
+    "an entree": "hamburger",
+    "my side": "veggies",
+    "the drink": "water"
+};
+
+var entreeValue = testObject["an entree"];
+var drinkValue = testObject["the drink"];
+
+/* Accessing Object Properties with Variables
+
+   Bracket Notation can also be used to look up object properties using
+   variables.
+*/
+
+var testObj = {
+    12: "Namath",
+    16: "Montana",
+    19: "Unitas"
+};
+
+var playerNumber = 16;
+var player = testObj[playerNumber];
 
 
 

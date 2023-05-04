@@ -513,5 +513,55 @@ function switchOfStuff(val) {
 
 console.log(switchOfStuff("c"))
 
+/* Returning Early Pattern from Functions
+   
+   We have gone through examples where we returned early from the functions.
+
+*/
+
+function abTest(a, b) {
+
+if (a < 0 || b < 0) {
+    return undefined;  // a < 0 or b < 0
+}
+
+return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2)); // round((sqrt(a) + sqrt(b))^2)
+}
+
+console.log(abTest(2,2)); // 8
+console.log(abTest(2, -2)); // undefined
+
+var count = 0
+
+function cc(card){
+    switch(card) {
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            count ++;
+            break;
+        case 10:
+        case "J":
+        case "Q":
+        case "K":
+        case "A":
+            count --;
+            break;
+    }
+
+    var holdbet = 'Hold'
+    if (count > 0){
+        holdbet = 'Bet'
+    }
+    return count + " " + holdbet;
+}
+
+cc(2); cc(7); cc(3); cc(2);
+
+console.log(cc("Q"));
+console.log(cc("J"));
+console.log(cc(5));
 
 </script>
