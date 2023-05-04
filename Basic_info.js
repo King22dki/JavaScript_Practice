@@ -935,23 +935,204 @@ console.log(testLogicalOr(15));
    in the case of not true.
 */
 
-function testElse(val){
-    
+// Example 1 - Without the else statement
+function testElse_Without(val) {
+
+    var result = "";
+
+    if (val > 5){
+        result = "Bigger than 5";
+    }
+
+    if (val <= 5) {
+        result = "5 or smaller";
+    }
+
+    return result;    
 }
 
+// Example 2 - With else statement 
+function testElse(val){
+    
+    var result = "";
 
+    if (val > 5){
+        result = "Bigger than 5";
+    } else {
+        result = "5 or smaller";
+    }
 
+    return result;
+}
 
+console.log(testElse(4));
 
+console.log(testElse_Without(4));
 
+/* Else If statements
 
+   If you have multiple conditions that need to be addressed, you can use else
+   if statements. It's a way of chaining if statements together.
 
+   In example 1 we have three conditions. In this instance one can use the else If 
+   statement. Example 2 illustrates how it would be used. See how both feature 
+   the same three conditions.
 
+*/
 
+// Example 1 - Without Else If statement
 
+function testElseIf_Without(val){
+    if (val > 10){
+        return "Greater than 10"; // condition 1
+    }
 
+    if (val < 5){
+        return "Smaller than 5"; // condition 2
+    }
 
+    return "Between 5 and 10"; // condition 3
+}
 
+// Example 2 - Else If statement
+
+function testElseIf(val){
+    if (val > 10){
+        return "Greater than 10"; // condition 1
+    } else if (val < 5){
+        return "Smaller than 5"; // condition 2
+    }else {
+        return "Between 5 and 10"; // condition 3
+    }
+}
+
+console.log(testElseIf_Without(7)); // Between 5 and 10
+
+console.log(testElseIf(7)); // Between 5 and 10
+
+/* Logical Order in If Else Statements
+
+   When using else if statements, the order becomes very important.
+   If you look at the example of the else If statement above, one would notice 
+   that there is a certain order in which we prsented the statements so that we
+   proceed in a logical order. I haven't included any follow up examples,
+   simply becuase of the one I featured before. After all rememeber if the 
+   1st condition is satisfied, than it won't check for the other conditions.
+*/
+
+/* Chaining If Else Statements
+
+*/
+
+// Example
+
+function testSize(num){
+    if (num < 5){
+        return "Tiny";
+    } else if (num < 10){
+        return "Small";
+    } else if (num < 15){
+        return "Medium";
+    } else if (num < 20){
+        return "Large";
+    } else {
+        return "Huge";
+    }
+}
+
+console.log(testSize(7));
+
+/* Golf code 
+
+   In the game of golf each hole has a par which means the average number of
+   strokes you're supposed to use to get the ball into the hole. So depending 
+   on how far above or below par your strokes are, there's a differnt nickname.
+
+   So in this example, we had to write a function where we pass in the par and 
+   the strokes. This will return the nickname associated with those arguments.
+*/
+
+var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!" ];
+
+function golfScore(par, strokes){
+    if (strokes == 1){
+        return names[0];
+    } else if (strokes <= par - 2){
+        return names[1];
+    } else if (strokes == par - 1){
+        return names[2]
+    } else if (strokes == par ){
+        return names[3]
+    } else if (strokes == par + 1){
+        return names[4]
+    } else if (strokes == par + 2){
+        return names[5]
+    } else if (strokes == par +3){
+        return names[6]
+    }   
+}
+
+console.log(golfScore(5, 4));
+
+/* Switch Statements
+
+   Instead of using a chanined else if statements you can use a switch statement.
+   A switch statement tests a value and can have many case statements which define
+   various possible values.
+*/
+
+function caseInSwitch(val){
+    var answer = "";
+    switch(val){
+        case 1:
+            answer = "alpha";
+            break;
+
+        case 2:
+            answer = "beta";
+            break;
+
+        case 3:
+            answer = "gamma";
+            break;
+
+        case 4:
+            answer = "delta";
+            break;
+    }
+
+    return answer;
+}
+
+/* Default Option in Switch Statements
+
+   The default option is kind of like else in an if else statement.
+*/
+
+function switchOfStuff(val) {
+    var answer = "";
+    switch(val){
+        case "a":
+            answer = "apple";
+            break;
+
+        case "b":
+            answer = "bird";
+            break;
+
+        case "c":
+            answer = "cat";
+            break;
+
+        default:
+            answer = "stuff";
+            break;
+    }
+
+    return answer;
+}
+
+console.log(switchOfStuff(c))
 
 
 
