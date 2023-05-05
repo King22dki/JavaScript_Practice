@@ -1213,6 +1213,8 @@ function chainToSwitch(val){
 
     }
 
+    return answer
+
 }
 
 /* Returning Boolean Values from Functions
@@ -1375,6 +1377,7 @@ var shirtValue = testObj.shirt;
 */
 
 var testObject = {
+
     "an entree": "hamburger",
     "my side": "veggies",
     "the drink": "water"
@@ -1398,16 +1401,184 @@ var testObj = {
 var playerNumber = 16;
 var player = testObj[playerNumber];
 
+/* Updating Object Properties
+
+   We can use dot notation to update object properties. See the example 
+   below, we changed the name of the dog from Bobo to Mad Dog Bobo.
+*/
+
+// Example 
+
+var ourDog = { 
+    "name": "Bobo",
+    "legs": 4,
+    "tails": 2,
+    "friends":[]
+};
+
+ourDog.name = "Mad Dog Bobo";
+
+/* Add New Properties to an Object
+
+   We can add new properties to an object using dot notation or bracket 
+   notataion.
+*/
+
+// Example - adding a new property to ourDog
+
+ourDog.ears = "pointy";
+
+// so now the object ourDog has 5 properties.
+
+/* Delete Properties from an Object
+   
+   To delete a property, simply use the delete keyword.
+
+*/
+
+var ourDog = { 
+    "name": "Bobo",
+    "legs": 4,
+    "tails": 2,
+    "Ears": "pointy",
+    "friends":[]
+};
+
+delete ourDog.friends;
+
+/* Using Objects for Lookups
+
+   Objects can be thought of as a key value storage like a dictionary.
+   You can use an object to lookup values.
+
+   In the example we are looking at, we have a switch statement that 
+   returns certain values. The switch statement can be replaced with an
+   object and use the object for lookups instead of the switch statement.
+
+   By creating a var lookup. Notice how it is a much shorter option to use
+   than using a switch statement.
+
+*/
 
 
+// Example Switch case
 
+function phoneticSwitch(val) {
+    var result = "";
 
+    switch(val) {
+        case "alpha":
+            result = "Adams";
+            break;
+        case "bravo":
+            result = "Boston";
+            break;
+        case "Charlie":
+            result = "Chicago";
+            break;
+        case "delta":
+            result = "Denver";
+            break;
+        case "echo":
+            result = "Easy";
+            break;            
+        case "foxtrot":
+            result = "Frank";
+            break;
+    }
+    return result;
+}
 
+// Example lookup case
 
+function phoneticLookup(val) {
+    var result = "";    
 
+    var lookup = {
+        "alpha":"Adams",
+        "bravo":"Boston",
+        "Charlie":"Chicago",
+        "delta":"Denver",
+        "echo":"Easy",
+        "foxtrot":"Frank",    
+    };
+    result = lookup[val];
 
+    return result;
+}
 
+console.log(phoneticSwitch("alpha"));
+console.log(phoneticLookup("alpha"));
 
+/* Testing Objects for Properties
+
+   You can check if an object has a property with the hasown property
+   method.
+
+   When we pass in checkProp, we expect to recieve a boolean response.
+   Since it can come back as either true or false if it has the property - 
+   we are able to use an if statement. Forming the two cases shown below in 
+   the example. 
+
+*/
+
+var myObj = {
+    gift: "pony",
+    pet: "kitten",
+    bed: "sleigh"
+};
+
+function checkObj(checkProp) { 
+
+    if (myObj.hasOwnProperty(checProp) ){
+        return myObj[checkProp]; // true case
+    } else {
+        return "Not Found" // false case
+    }
+}
+
+/* Manipulating Complex Objects
+
+   A JavaScript object is a way to store flexible data. So you can store
+   strings, numbers, arrays, and even other objects.
+
+   So in this example we have an array called myMusic. Inside the array we
+   have an objects. The example below, features two objects.
+
+   And each object holds data and a property which is the key value format.
+   This is very similar to JSON.
+
+*/
+
+var myMusic = [
+    {
+        "artist": "Billy Joel",
+        "title": "Piano Man",
+        "release_year": 1973,
+        "formats": [
+            "CD",
+            "8T",
+            "LP"
+        ],
+        "gold": true
+    },
+
+    // Another Record
+
+    {         
+    
+        "artist": "Beau Carnes",
+        "title": "Cereal Man",
+        "release_year": 2003,
+        "formats": [
+            "YouTube video",
+            ],
+    }
+]
+
+/* Accessing Nested Objects
+   
+*/
 
 
 
