@@ -1,4 +1,13 @@
 <script>
+/* 
+
+
+This document here is simply for me to run JS code.
+
+
+
+
+*/
 var a; // declaring a variable
     var b = 2; // asigning a variable
     console.log(a)
@@ -652,5 +661,21 @@ function phoneticLookup(val) {
 
 console.log(phoneticSwitch("alpha"));
 console.log(phoneticLookup("alpha"));
+
+var myStorage = {
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passenger seat": "crumbs"
+        },
+        "outside": {
+            "trunk": "jack"
+        }
+    }
+};
+
+var gloveBoxContents = myStorage.car.inside["glove box"];
+
+console.log(gloveBoxContents);
 
 </script>

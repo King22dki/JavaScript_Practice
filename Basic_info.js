@@ -1577,12 +1577,39 @@ var myMusic = [
 ]
 
 /* Accessing Nested Objects
+  
+   In this example we are looking at an object with other objects nested inside of them.
+   This will allow us to investigate the methods used to access sub-properties of an object.
    
+   Method one, will involve the chained dot notation.
+
+   Method two, will involve chained bracket notation.
+  
 */
 
+// Example
 
+var myStorage = {
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passenger seat": "crumbs"
+        },
+        "outside": {
+            "trunk": "jack"
+        }
+    }
+};
 
+var gloveBoxContents = myStorage.car.inside["glove box"];
 
+console.log(gloveBoxContents);
+
+/* Accessing Nested Arrays
+   
+   Array bracket notation can be chnaged to access nested 
+
+*/
 
 
 
