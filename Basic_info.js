@@ -1607,20 +1607,180 @@ console.log(gloveBoxContents);
 
 /* Accessing Nested Arrays
    
-   Array bracket notation can be chnaged to access nested 
+   Array bracket notation can be chnaged to access nested arrays.
+   
+   In the example we have an array and two objects. Each object has
+   elements that are arrays.
 
 */
 
+var myPlants = [
+    { 
+        type: "flowers",
+        list:[
+            "rose",
+            "tulip",
+            "dandelion"
+        ]
+    },
+    {
+        type: "trees",
+        list:[
+            "fir",
+            "pine",
+            "birch"
+        ]   
+    }
+];
 
 
+var secondTree = myPlants[1].list[1];
 
+console.log(secondTree);
 
+/* Record Collection
 
+   This example focuses on an object, that has an ID, a property and a value.
+   The aim is to create a function that can update the collection.
+*/
 
+var collection = {
+    "2548": {
+        "album": "Slippery When Wet",
+        "artist": "Bon Jovi",
+        "tracks": [
+            "Let It Rock",
+            "You Give Love a Bad Name"
+        ]
+    },
+    "2568": {
+        "album": "1999",
+        "artist": "Prince",
+        "tracks": [
+            "1999",
+            "Little Red Corvette"
+        ]
+    },
+    "1245": {
+        "artist": "Robert Palmer",
+        "tracks": [ ]
+    },
+    "5439": {
+        "album": "ABBA Gold",
+    },
+};
 
+// Keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
 
+function updateRecords(id, prop, value){
+    if (value === ""){
+        delete collection[id][prop];
+    } else if (prop === "tracks") {
+        collection[id][prop] = collection[id][prop] || [];
+        collection[id][prop].push(value);
+    } else {
+        collection[id][prop] = value;
+    }
 
+    return collection;
+}
 
+console.log(updateRecords(5439, "artist", "ABBA"));
+
+/* Iterate with While Loops
+
+   Loops allow you to run the same code multiple times.
+   The while Loop runs while a specified condition is true
+   and stops once it's no longer true.
+
+*/
+
+var myArray = [];
+
+var i = 0;
+while(i < 5) {
+    myArray.push(i);
+    i++;
+}
+
+console.log(myArray);
+
+/* Iterate with For Loops
+
+   A for loop is the most common type of loop in JavaScript.
+   
+   for (initialisation; condition; final expression){
+
+   };
+
+   initialisation: is what most for loops start with.
+
+   Condition: Until this condition is deemed false the loop will 
+   keep on going, where it breaks out.
+
+   Final expression: The thing we do after iteration.
+
+*/ 
+
+var ourArray = [];
+
+for (var i = 0; i < 5; i++){
+    ourArray.push(i);
+}
+
+var myArray = [];
+
+for (i = 1; i < 6; i++) {
+    myArray.push(i);
+}
+
+console.log(myArray);
+
+/* Iterate Odd Numbers with a For Loop
+
+   An example showing how we don't 
+*/
+
+var ourArray = [];
+
+for (var i = 1; i < 10; i +=2) {
+    ourArray.push(i);
+}
+
+console.log(ourArray);
+
+/* Count Backwards with a For Loop
+
+*/
+
+var myArray = [];
+
+for (var i=10; i > 0; i -=2) {
+    myArray.push(i);
+}
+
+console.log(myArray);
+
+/* Iterate Through an Array with a For Loop
+
+   It is common in JavaScript to iterate through the contents of an
+   array.
+
+*/
+
+var ourArr = [9, 10, 11, 12];
+var ourTotal = 0;
+
+for (var i = 0; i < ourArr.length; i++) {
+    ourTotal += ourArr[i];
+}
+
+console.log(ourTotal);
+
+/* Nesting for Loops
+   
+*/   
 
 
 
