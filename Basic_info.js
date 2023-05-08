@@ -1940,4 +1940,61 @@ console.log(randomWholeNumber());
 
 /* Generate Random Whole Numbers within a Range
 
+   (((9-1)+1)*(0 =< x < 1)) + 1 ---> 1 =< x < 10
+
+   This is just the maths that works out the range of ourRandomRange.
+
+   ((0 =< x < 1)*((m2 -m1) + 1)) + m1 ---> m1 =< x < (m2 +1)
+
+   This means that the number will always be between m1 and m2.
+
 */
+
+
+function ourRandomRange(ourMin, ourMax) {
+
+    return Math.floor(Math.random() * (ourMax - ourMin + 1)) + ourMin;
+}
+
+ourRandomRange(1,9);
+
+/* Use the parseInt Function
+
+   It takes a string and returns an integer. This will be useful for calculations
+   where we want to perform calculations.
+
+   If the string cannot be converted into an integer in returns in NaN
+   for Not a Number.
+
+*/
+
+// Example
+
+function convertToInteger(str) {
+    return parseInt(str);
+}
+
+// This will will parse into an integer....it can also be contenated.
+console.log(convertToInteger("1000111" + "55")); 
+
+/* Use the parseInt Function with a Radix
+
+   The parseInt function can also be used with a radix. 
+   The radix specifies the base of the number in the string.
+
+   base 2 is binary. 
+   base 10 is what we normally use in day to day life it is also 
+   the default option.
+   
+*/
+
+function convertToInteger(str) {
+    return parseInt(str, 2)
+}
+
+console.log(convertToInteger("10011"));
+
+/* Use the Conditonal (Ternary) Operator
+
+*/
+
