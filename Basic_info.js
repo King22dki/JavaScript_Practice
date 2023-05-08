@@ -1779,8 +1779,165 @@ for (var i = 0; i < ourArr.length; i++) {
 console.log(ourTotal);
 
 /* Nesting for Loops
-   
-*/   
 
+   If you have multidimensonal or nested array, you can use nested for loops
+   to access all the array elements. 
 
+   Since we already have an i within the scope mentioned in the first for loop
+   we declare j...if we had to make another it would be h.
 
+*/ 
+
+// Exmaple 
+
+function multiplyAll(arr) {
+    var product = 1;
+
+    for (var i=0; i < arr.length; i++){
+        for (var j=0; j < arr[i].length; j++){
+            product *= arr[i][j];
+        }
+    }
+
+    return product;
+}
+
+// Basically 7!
+
+var product = multiplyAll([[1,2], [3,4], [5,6,7]]);
+
+console.log(product);
+
+/* Iterate with Do...While Loops
+
+   While loops first checks the condition before it runs any code within the loop.
+   A Do while loop will always run at least one time before it will check the 
+   condition.
+
+*/
+
+// Example 4
+
+var myArray = [];
+var i = 10;
+
+while (i < 5) {
+    myArray.push(i);
+    i++;
+}
+
+console.log(i, myArray);
+
+var myArray = [];
+var i = 10;
+
+do {
+    myArray.pusj(i);
+    i++;
+} while (i < 5)
+
+console.log(i, myArray);
+
+/* Profile Lookup
+
+   This is a coding challenge. You have an array of objects.
+   Each object represents a contact.
+
+*/
+
+// Example
+
+var contacts = [
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Cho"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing cases", "Violin"]
+    },
+    {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["JavaScript", "Gaming", "Foxes"]
+    },
+    {
+        "firstName": "Luffy",
+        "lastName": "Monkey",
+        "number": "No Den Den Mushi",
+        "likes": ["meat", "nakama", "One piece"]
+    }
+    
+]
+function lookUpProfile(name, prop) {
+
+    for (var i = 0; i < contacts.length; i++){
+        if(contacts[i].firstName === name){
+            return contacts[i][prop] || "No such property";
+        }
+    }
+    return "No such contact";
+}
+
+var data = lookUpProfile("Luffy", "likes");
+
+console.log(data);
+
+/* Generate Random Fractions
+
+   There is a simple way to create a random decimal in JavaScript.
+
+   Math.random() gives you a number x that satisfies the following 
+   inequality 0 =< x < 1. 
+*/
+
+function randomFraction() {
+
+    return Math.random();
+}
+
+console.log(randomFraction())
+
+/* Generate Random Whole Number
+
+   We need to adapt the inequality from before.
+
+   (0 =< x < 1)*20 = 0 =< x < 20
+
+*/
+
+// Example
+
+var randomNumberBewteen0and19 = Math.floor(Math.random() * 20);
+
+function randomWholeNum() {
+
+    return randomNumberBewteen0and19;
+
+}
+
+// or
+
+function randomWholeNumber() {
+
+    return Math.floor(Math.random() *30);
+}
+
+console.log(randomWholeNum());
+
+console.log(randomWholeNumber());
+
+/* Generate Random Whole Numbers within a Range
+
+*/
