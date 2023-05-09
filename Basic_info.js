@@ -2057,5 +2057,63 @@ function checkEqual(a, b) {
 
 /* Compare Scopes of the var and let keywords
 
+   Another major difference between the var and let keywords is that when you
+   declare a variable with var, it is declared globally or locallly if declared
+   inside a function. 
+
+   However, let - the scope of let is limited to the block statement or expression
+   that it was declared in.
+
+   See example 1, notice how the output is:
+   
+   Block scope i is: block scope
+
+   Function scope i is: block scope
+
+   Meanwhile example 2 will be:
+
+   Block scope i is: block scope
+
+   Function scope i is: function scope
+
+   Note: A block is just anything inside these squiggly braces here.
+
+   So in our examples we have two blocks, so when we use let to declare
+   our variables, it accounts for the outer block which is for the function
+   and the inner block of the If statement. 
+
+   People use let to declare variables because it allows one to make sure 
+   the variable is only defined in the area they want it to be defined in.
+   
+
 */
 
+// Example 1
+function checkScope() {
+    "use strict";
+    var i = "function scope";
+    if (true) {
+        i = "block scope";
+        console.log("Block scope i is:", i);
+    }
+    console.log("Function scope i is:", i);
+    return i;
+}
+
+checkScope();
+
+// Example 2 
+
+function checkScope() {
+    "use strict";
+    let i = "function scope";
+    if (true) {
+        let i = "block scope";
+
+        console.log("Block scope i is:", i);
+    }
+    console.log("Function scope i is:", i);
+    return i;
+}
+
+checkScope();
