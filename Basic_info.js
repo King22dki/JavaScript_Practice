@@ -1995,6 +1995,67 @@ function convertToInteger(str) {
 console.log(convertToInteger("10011"));
 
 /* Use the Conditonal (Ternary) Operator
+   
+   It's like a one line if else statement.
+
+   condition ? statement-if-true : statement-if-false;
+
+*/
+
+// Normal If else statement
+function checkEqual(a, b) {
+    if (a === b) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+
+// Ternary Operator version
+
+function checkEqual(a, b) {
+
+    return a === b ? true : false;
+
+}
+
+/* Use Multiple Conditonal (Ternary) Operators
+
+   One of the advantages of Conditional/Ternary operators is that we 
+   can nest them within each other which gives them even more power.
+
+*/
+
+   function checkSign(num) {
+    return num > 0 ? "Posistive" : num < 0 ? "Negaeive" : "Zero";
+   }
+
+   console.log(checkSign(0));
+
+/* Differences Between the var and let Keywords
+
+    Starting with ES6 in 2015 we could declare variables with let
+    and const opposed to only using var.
+
+    let does let you declare a variable twice.
+
+    You'll get a error saying that there is duplication declaraition in
+    the instance that you try and use let to declare a variable more than
+    once. This is a good thing, because in general you don't want to declare
+    a variable two times in the same scope. So one would you use this method 
+    as it gives you an error that lets you know that you have done something
+    wrong.
+
+    "use strict" enables strict mode which catches common coding mistakes and 
+    unsafe actions. This is probaly why "use strict" would be used at the top 
+    of a full JavaScript file or maaybe just in a fucntion to catch coding 
+    mistakes. Such as if you create a variable and don't declare it with var,
+    let, or const.
+
+*/
+
+/* Compare Scopes of the var and let keywords
 
 */
 
