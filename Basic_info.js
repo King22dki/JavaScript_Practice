@@ -2117,3 +2117,54 @@ function checkScope() {
 }
 
 checkScope();
+
+/* Declare a Read-Only Variable with the const Keyword
+
+   const is another way to declare a variable. It has all the features
+   of let but it's also read-only. You cannot reassign a const.
+
+   This is why in example one the output was:
+
+   OnePiece is amazing!
+
+   Meanwhile, in example 2 the code had to be modified otherwise we would
+   have gotten an error saying ("sentence" is read only).
+
+   For the most part, one should mainly use const and let. However, there 
+   are instances where we use var.
+
+*/
+
+// Example 1 
+
+function printManyTimes(str) {
+    "use strict";
+
+    var sentence = str + " is cool!";
+
+    sentence = str + " is amazing!";
+
+    for(var i = 0; i < str.length; i+=2) {
+        console.log(sentence);
+    }
+}
+
+printManyTimes("OnePiece");
+
+// Example 2
+
+function printManyTimes(str) {
+    "use strict";
+
+    const SENTENCE = str + " is cool!";
+
+    for(let i = 0; i < str.length; i+=2) {
+        console.log(sentence);
+    }
+}
+
+printManyTimes("OnePiece");
+
+/* Mutate an Array Declared with const
+
+*/ 
