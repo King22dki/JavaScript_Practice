@@ -2167,4 +2167,44 @@ printManyTimes("OnePiece");
 
 /* Mutate an Array Declared with const
 
+   While you cannot reassign a variable that was declared with const,
+   however, you can mutate an array.
+
 */ 
+
+const s = [5, 7, 2];
+
+function editInPlace() {
+    "use strict";
+
+    // s = [2, 5, 7]; This can't work because I can't reassign the variable.
+    // However using Bracket notation I can mutate the array.
+    s[0] = 2;
+    s[1] = 6;
+    s[2] = 7;
+
+}
+editInPlace();
+
+console.log(s);
+
+/* Prevent Object Mutation
+
+   In the previous example, we saw how a const declaration alone doesn't really
+   proctect your data from mutation.
+
+   If you have an object or an array, you can still mutate it even it's declared with
+   const.
+
+   There is something called object.freeze that will prevent data mutation.
+
+*/
+
+function freezeObj() {
+    "use strict";
+    const MATH_CONSTANTS ={
+        PI: 3.14
+    };
+
+    
+}
