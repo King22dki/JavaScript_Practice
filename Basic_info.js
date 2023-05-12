@@ -2308,4 +2308,60 @@ console.log(squaredIntegers);
 
 /* Write Higher Order Arrow Functions
 
+   In order to create more flexible functions you can use default parameters.
+   The defualt parameter kicks in when the argument is not specified or is 
+   undefined.
+
+   In the example covered below, we have set number and value as our parameters.
+   In the case that we have no value arg passed in, we take the defualt value of
+   1. 
+
+*/
+
+const increment = (function() {
+    return function increment(number, value = 1){
+        return number + value;
+    };
+})();
+
+console.log(increment(5, 2));
+console.log(increment(5));
+
+/* Use the Rest Operator with Function Parameters
+
+   The rest operator allows you to create a function that takes a variable number 
+   of arguments. The rest operator is three dots.
+
+   The function below is taking three arguments x, y, and z and it's summing them.
+   So it's converting these x, y, and z into an array called args; and then reducing
+   them.
+
+   So the problem here is that this is only limited to 3 numbers as the array args.
+   The option with the rest operator, means we can mae an array that we can pass 
+   everything into a single array called args. Allow us to have any number of arguments
+   now as the array is exapansive.
+
+*/
+
+// Example without
+
+const sum1 = (function () {
+    return function sum1 (x, y, z) {
+        const args = [x, y, z]
+        return args.reduce((a, b) => a + b, 0);
+    };
+}) ();
+
+console.log(sum1(1, 2, 3));
+
+// Example with the rest operator
+const sum2 = (function () {
+    return function sum2 (...args) {
+        return args.reduce((a, b) => a + b, 0);
+    };
+}) ();
+
+console.log(sum2(1, 2, 3, 4, 5));
+
+/* 
 */
