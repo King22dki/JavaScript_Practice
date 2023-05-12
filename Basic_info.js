@@ -2225,5 +2225,83 @@ message: 'Cannot assign to read only property 'PI' of object
 */
 
 /* Use Arrow Functions to write concise Anoymous Functions
+ 
+   In the example below, we have a function that doesn't have name,
+   thus earning the title of being an anoymous function. Even though 
+   we have assigned it to the variable magic; there's no word right 
+   before the function keyword to assign the name to the function.
+   Whenever you have an anonymous function you can convert it into an
+   arrow function. This makes it a little quicker to write. 
+
+   That's why in the second example below, we take out the word function;
+   and instead type/write an arrow after the ().
+
+   We can shorten it even more. since we are just returning one value 
+   we can remove the return keyword and the curly braces. The change from
+   var to const is just a little touch, that one can add to it.
+
+*/
+
+// Example 1
+var magic = function() {
+    return new Date();
+}
+
+// Example 2
+
+const magic = () => Date();
+
+/* Write Arrow Functions with Parameters
+   
+   Just like in normal function, you can pass arguments to arrow functions.
+
+   concat() is a method in JavaScript that is used to combine two or more arrays.
+    The method does not change the existing arrays but returns a new array, which 
+    contains all the elements of the original arrays. The concat() method can take 
+    one or more arrays as its parameters, and it returns a new array that contains 
+    the elements of all the arrays.
+*/
+
+// Example 1 - Normal function 
+
+var myConcat = function(arr1, arr2) {
+    return arr1.concat(arr2);
+};
+
+console.log(myConcat([1, 2], [3, 4, 5]));
+
+
+// example 2 - Arrow function
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
+
+/* Write Higher Order Arrow Functions
+   
+   Arrow functions work really well with higher order functions such as
+   map, filter, and reduce. All we need to know about these higher order
+   functions for now is that they take functions as arguments for processing
+   collections of data.
+
+   Whenever one function takes another function as an argument, that is suitable
+   time for an arrow function.
+
+   In the previous example we saw that when we had two arguments we put parenthesis
+   around them, however if we have a single argument, you don't need to follow that
+   format. Look at the example below if you are confused.
+
+*/
+
+// Example 1
+
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+    return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
+/* Write Higher Order Arrow Functions
 
 */
