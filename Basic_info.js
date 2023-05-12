@@ -2287,6 +2287,10 @@ const myConcat = (arr1, arr2) => arr1.concat(arr2);
    In the previous example we saw that when we had two arguments we put parenthesis
    around them, however if we have a single argument, you don't need to follow that
    format. Look at the example below if you are confused.
+   
+   Note: Number.isInteger() is a built-in function in JavaScript 
+   that checks if a value is an integer. It returns true if the 
+   value is an integer and false if not.
 
 */
 

@@ -1158,5 +1158,37 @@ function freezeObj() {
 
 const PI =freezeObj();
 
+/* Write Higher Order Arrow Functions
+   
+   Arrow functions work really well with higher order functions such as
+   map, filter, and reduce. All we need to know about these higher order
+   functions for now is that they take functions as arguments for processing
+   collections of data.
+
+   Whenever one function takes another function as an argument, that is suitable
+   time for an arrow function.
+
+   In the previous example we saw that when we had two arguments we put parenthesis
+   around them, however if we have a single argument, you don't need to follow that
+   format. Look at the example below if you are confused.
+
+   Note: Number.isInteger() is a built-in function in JavaScript 
+   that checks if a value is an integer. It returns true if the 
+   value is an integer and false if not.
+
+*/
+
+// Example 1
+
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+    return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
 
 </script>
