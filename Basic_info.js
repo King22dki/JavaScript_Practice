@@ -2363,5 +2363,49 @@ const sum2 = (function () {
 
 console.log(sum2(1, 2, 3, 4, 5));
 
-/* 
+/* Use the Spread Operator to Evaluate Arrays In-Place
+
+   The spread operator looks just like the rest operator.
+   But it expands an already existing array or spreads out an array.
+
+   Below, we have two examples, that illustrate the effect
+   of using the spread operator. 
+
+   One should understand the example without the spread operator
+   equates the two different arrays. Meanwhile in the second example
+   we see that the spread operator is used to transfer all the elements
+   of the arr1 into arr2, making it a direct copy.
+
+   Note: You can only use it in an argument to a function or in an array
+   literal.
+
+   Array literal: An array literal is a way of creating a new array in 
+   JavaScript by specifying its elements in square brackets, separated by 
+   commas.
+
+*/
+
+// Example 1
+const arr1 = ['Luffy', 'Zoro', 'Nami', 'Usopp', 'Sanji', 'Chopper', 'Robin', 'Franky', 'Brook'];
+let arr2;
+(function(){
+    arr2 = arr1;
+    arr1[0] = 'potato'
+})();
+
+console.log(arr2);
+
+// Example 2
+const arr3 = ['Luffy', 'Zoro', 'Nami', 'Usopp', 'Sanji', 'Chopper', 'Robin', 'Franky', 'Brook'];
+let arr4;
+(function(){
+    arr4 = [...arr3];
+    arr3[0] = 'One Piece'
+})();
+
+console.log(arr4);
+
+/* Use Destructuring Assignment to Assign Variables from Objects
+
+   
 */
