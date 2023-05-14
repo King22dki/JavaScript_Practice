@@ -1289,4 +1289,22 @@ let arr4;
 
 console.log(arr4);
 
+// Another example of destructuring 
+const AVG_TEMPERATURES = { 
+    today: 77.5,
+    tomorrow: 79
+};
+
+function getTempOftmrw(avgTemperatures){
+    "use strict"
+
+    // Get the field of tomorrow and assign it to the tempOfTomorrow variable.
+
+    const{ tomorrow : tempOfTomorrow} = avgTemperatures
+    return tempOfTomorrow;
+}
+
+console.log(getTempOftmrw(AVG_TEMPERATURES));
+   
+
 </script>

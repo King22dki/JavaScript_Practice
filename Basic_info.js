@@ -2407,5 +2407,44 @@ console.log(arr4);
 
 /* Use Destructuring Assignment to Assign Variables from Objects
 
-   
+   Destrucuring Assignments - this is a special syntax for neatly 
+   assigning values taken directly from an object to a variable.
+*/
+
+// Example without destrucuring
+var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+
+var x = voxel.x;
+var y = voxel.y;
+var z = voxel.z;
+
+/* The code below can be read like this:
+
+   Get the field of x and copy into the value a.
+   Get the field of y and copy into the value b.
+   Get the field of z and copy into the value c.
+*/
+
+// Example of destructuring
+const { x : a, y : b, z : c} = voxel;
+
+// Another example of destructuring 
+const AVG_TEMPERATURES = { 
+    today: 77.5,
+    tomorrow: 79
+};
+
+function getTempOftmrw(avgTemperatures){
+    "use strict"
+
+    // Get the field of tomorrow and assign it to the tempOfTomorrow variable.
+
+    const{ tomorrow : tempOfTomorrow} = avgTemperatures
+    return tempOfTomorrow;
+}
+
+console.log(getTempOftmrw(AVG_TEMPERATURES));
+
+/* Destructuring Assignment with Nested Objects
+
 */
