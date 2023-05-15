@@ -2447,4 +2447,5 @@ console.log(getTempOftmrw(AVG_TEMPERATURES));
 
 /* Destructuring Assignment with Nested Objects
 
+
 */
