@@ -23,4 +23,20 @@ function randomMultiple (a, b){
 
 console.log(randomMultiple());
 
+/* I wanted to experimetnt with generating prime numbers so I looked 
+   up some functions:
 
+   P(n) = (n*n) + n + 41
+
+*/
+
+function eulerPrimeNumbers(n) {
+
+    if (n < 41) {
+        return (n*n) + n + 41;
+    } else {
+        return "This function is not valid for the input given.";
+    }
+}
+
+console.log(eulerPrimeNumbers(40));
