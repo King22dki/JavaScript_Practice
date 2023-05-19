@@ -33,10 +33,36 @@ console.log(randomMultiple());
 function eulerPrimeNumbers(n) {
 
     if (n < 41) {
-        return (n*n) + n + 41;
+        return (n**2) + n + 41;
     } else {
         return "This function is not valid for the input given.";
     }
 }
 
 console.log(eulerPrimeNumbers(40));
+
+/* Experimation of using function to create a quadratic formula solver
+   I had to declare three different variables.
+*/
+
+function quadraticEqSolver(a,b,c) {
+
+    var discriminant = ((b**2)-(4*a*c))
+
+    if (discriminant < 0) {
+        return "There are no real solutions"
+    }
+
+    var x1 = ((-b + Math.sqrt(discriminant))/(2 * a));
+
+    var x2 = ((-b - Math.sqrt(discriminant))/(2 * a));
+
+    var result = "";
+
+    result += "x1" + " " + "=" + " " + x1 + " and " + "x2" + " " + "=" + " " + x2
+    return result
+}
+
+console.log(quadraticEqSolver(1, 9, 18));
+
+// This is the return I recieved from the debug console (x1 = -3 and x2 = -6).
