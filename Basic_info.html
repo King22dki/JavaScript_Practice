@@ -1306,7 +1306,78 @@ function getTempOftmrw(avgTemperatures){
 
 console.log(getTempOftmrw(AVG_TEMPERATURES));
 
+/* Destructuring Assignment with Nested Objects
 
+   Destructuring assignment can also be used to assign variables from nested objects.
+
+   In the example below we destructured two times. The intial curly brackets gets 
+   tomorrow, then the nested curly bracket gets the max option.
+
+*/
+
+const Local_Forecast = {
+    today: {min: 72, max: 83},
+    tomorrow: { min: 73.3, max: 84.6}
+};
+
+function getMaxOfTmrw(forecast) {
+    "use strict";
+
+    const { tomorrow : { max: maxOfTomorrow }} = forecast;
+
+    return maxOfTomorrow;
+}
+
+console.log(getMaxOfTmrw(Local_Forecast));
+
+/* Use Destructuring Assignement to assign variables from arrays
+
+   In the example below we have an array where we are assigning 
+   z and x to the first two numbers of the array, 1, and 2.
+
+   The difference between destructuring in an array from an object
+   is that you can't specify which element from the array to go into
+   the variable, it just goes in order.
+
+   You can use the destructuring of arrays to switch the places of 
+   variables.
+
+*/
+// Example 1
+
+const [z, x, , y] = [1, 2, 3, 4, 5, 6];
+console.log(z, x, y);
+
+// Example 2
+var a = 8, b = 6;
+
+(() => {
+    "use strict";
+
+    [a, b] = [b, a];
+
+}) ();
+
+console.log(a);
+console.log(b);
+
+/* Use Destructuring Assignment with the Rest Operator
+
+   The method of destructuring assignment in conjuction with the rest operator
+   to reassign array elements.
+*/
+
+const source =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function removeFirstTwo(list) {
+
+    const [ , , ...arr] = list;
+    
+    return arr;
+}
+
+var arr = removeFirstTwo(source);
+console.log(arr);
+console.log(source);
 
 
 </script>
