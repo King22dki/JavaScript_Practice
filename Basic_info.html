@@ -1379,5 +1379,94 @@ var arr = removeFirstTwo(source);
 console.log(arr);
 console.log(source);
 
+/* Use Destructuring Assignment to Pass an Object as a Function's Parameters
+
+   You can use the destructuring assignment to pass an object as a function's 
+   parameter.
+
+   In example 1 below we have this half function and it gets the stats arguments.
+   The variable stats is an object, so with how we have set up example 1, it means
+   we have to pass through all the stat variables before it works.
+
+   In example 2 we use destructuring to make this process more effiecent. So, now 
+   when the stats gets passed in it's destructured into the max and min variables.
+
+   So the max and min from the function gets passed in. Although the two examples 
+   give us the same results, the second example only passes in what we want. This 
+   aspect of destructuring is why we commonly use this method in API calls, in the 
+   case of getting information from an Ajax request or an API request, it will often
+   have a lot more information than what you need. This is when you use destructuring 
+   to get it down to what we actually want to work with.
+   
+*/
+
+// Example 1
+var stats = {
+    max: 56.78,
+    standard_deviation: 4.34,
+    median: 34.54,
+    mode: 23.87,
+    min: -0.75,
+    average: 35.85
+};
+
+var half = (function () {
+
+    return function half(stats) {
+        return (stats.max + stats.min) / 2.0;
+    };
+
+}) ();
+
+console.log(stats);
+console.log(half(stats));
+
+// Example 2
+var stats = {
+    max: 56.78,
+    standard_deviation: 4.34,
+    median: 34.54,
+    mode: 23.87,
+    min: -0.75,
+    average: 35.85
+};
+
+var half = (function () {
+
+    return function half({max, min}) {
+        return (max + min) / 2.0;
+    };
+
+}) ();
+
+console.log(stats);
+console.log(half(stats));
+
+/* Create Strings using Template Literals
+
+   Template literals are a special type of string that makes creating complex strings easier.
+   You make them with using a backticks instead of quotation marks.
+
+   Advantages:
+
+   -Can make multiline strings
+   -You can add single or double quotation marks within the string, without the need to escape them.
+   -You can put variables right in the string.
+*/
+
+const person = {
+    name: "Monkey D. Luffy",
+    age: 19
+};
+
+// Template literal with multi-line and string interpolation
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting);
+
+// Coding Challenge
+
+
 
 </script>
