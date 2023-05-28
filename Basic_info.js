@@ -2604,7 +2604,24 @@ I am ${person.age} years old.`;
 
 console.log(greeting);
 
-// Coding Challenge
+/**Coding Challenge
+ * We have a function called makeList and we want to create a list based on the
+ * array that's passed in. So when we call makeList, we pass result.failure.
+ * 
+ * makeList(result.failure) should return:
+ * 
+ * [ `<li class="text-warning">no-var</li>`,
+ *   `<li class="text-warning">var-on-top</li>`,
+ *   `<li class="text-warning">linebreak</li>` ]
+ * 
+ * Each element in the array is a template literal that has some HTML in it.
+ * 
+ * The `resultDisplayArray` was initially `null`, so when we wanted to push 
+ * elements into the `resultDisplayArray` using the push method, we would encounter
+ * an error. In order to fix this I dedcided to intialise `resultDisplayArray` as an 
+ * empty array `[]` instead of `null`.
+ * 
+ */
 
 const result = {
     success: ["max-length", "no-amd", "prefer-arrow-functions"],
@@ -2613,16 +2630,78 @@ const result = {
 };
 
 function makeList(arr) {
-    const resultDisplayArray = null;
+    const resultDisplayArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        resultDisplayArray.push(`<li class="text-warning">${arr[i]}</li>`)
+    }
 
     return resultDisplayArray;
 }
 
-/**
- * makeList(result.failure) should return:
- * [ `<li class="text-warning">no-var</li>`,
- *   `<li class="text-warning">var-on-top</li>`,
- *   `<li class="text-warning">linebreak</li>` ]
- **/
-
 const resultDisplayArray = makeList(result.failure);
+console.log(resultDisplayArray);
+
+/** Write Concise Object Literal Declarations using Simple Fields
+ * 
+ * ES6 added some nice support for easily defining object literals.
+ * 
+ * In example 1 the `createPerson` function takes in `name`, `age`, and
+ * `gender` as parameters and returns an object literal. The properties of
+ * the object (`name`, `age`, `gender`) are assigned values from the function
+ * parameters. 
+ * 
+ * ES6 you can use the consise syntax to simplify the code. SO in example 2
+ * the `createPerson` function uses arrow function syntax and immediately returns
+ * object literal. The properties of the object (`name`, `age`, `gender`) are
+ * assigned values from the function parameters using the concise syntax. This
+ * syntax allows you to directly use the parameter names as property names without 
+ * repeating them.
+ */
+
+// Example 1
+var createPerson = (name, age, gender) => {
+
+    return {
+        name: name,
+        age: age,
+        gender: gender
+    };
+    };
+    
+    console.log(createPerson("Sanji Vinsmoke", 21, "male"));
+    
+    // Example 2
+    var createPerson = (name, age, gender) => ({name, age, gender});
+    
+    console.log(createPerson("Rikuo Nura", 13, "male"));
+
+    /** Write Concise Declarative Functions 
+     * 
+     * An object can contain a function.
+     */
+
+// Example 1
+var bicycle = {
+    gear: 2,
+    setGear: function(newGear) {
+        "use strict";
+        this.gear = newGear;
+    }
+};
+
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+
+// Example 2
+
+var bicycle = {
+    gear: 2,
+    setGear (newGear) {
+        "use strict";
+        this.gear = newGear;
+    }
+};
+
+bicycle.setGear(3);
+console.log(bicycle.gear);
