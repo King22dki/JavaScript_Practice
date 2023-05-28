@@ -66,3 +66,21 @@ function quadraticEqSolver(a,b,c) {
 console.log(quadraticEqSolver(1, 9, 18));
 
 // This is the return I recieved from the debug console (x1 = -3 and x2 = -6).
+
+/** Discriminant Rule
+ * 
+ */
+
+function discriminantQuadraticts(a,b,c){
+    const d = b**2 - (4*a*c);
+
+    if (d > 0) {
+        return "two real solutions";
+    } else if (d = 0){
+        return "one repeated root";
+    } else if (d < 0){
+        return "complex roots";
+    }
+}
+
+console.log(discriminantQuadraticts(1,2,3));
