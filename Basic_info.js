@@ -2675,10 +2675,32 @@ var createPerson = (name, age, gender) => {
     
     console.log(createPerson("Rikuo Nura", 13, "male"));
 
-    /** Write Concise Declarative Functions 
-     * 
-     * An object can contain a function.
-     */
+/** Write Concise Declarative Functions 
+ * An object can contain a function.
+ * 
+ * [Note: I wanted to introduce the term method, this refes to a function that is associated with
+ * an object or a class. Methods are used to define the behaviour or actions that an object can 
+ * perform. 
+ * 
+ * In object-oriented programming (OOP), objects encapsulate data and behaviour. The data is
+ * represented by properties or attributes, while the behaviour is defined by methods. Methods are
+ * functions that operate on the object's data and can modify it, retrive information from it, or
+ * perform specific actions.]
+ * 
+ * In example 1, the `bicycle` object has a property `gear` with an intitial value of 2,
+ * and a method `setGear` defined as a regular function. The `setGear` function takes in a 
+ * `newGear` parameter and updates the `gear` property of the `bicycle` object with the 
+ * provided value. The method is invoked using `bicylce.setGear(3)` and then the `gear` 
+ * property is logged to the console.
+ * 
+ * In example 2, the `setGear` function is defined using the concise syntax available in ES6.
+ * Instead of using the `function` keyword, the function is declared directly within the object
+ * literal using the property name and parameter list.
+ * 
+ * Note: An object literal is a way to define an object in JavaScript using a concise syntax.
+ * It allows you to create an object with properties and their corresponding values directly within
+ * the curly braces `{}` without the need for a constructor or a class.
+ */
 
 // Example 1
 var bicycle = {
@@ -2705,3 +2727,7 @@ var bicycle = {
 
 bicycle.setGear(3);
 console.log(bicycle.gear);
+
+/**Use class Syntax to Define a COnstructor Function
+ * 
+ */
