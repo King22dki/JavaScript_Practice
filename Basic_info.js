@@ -2866,7 +2866,28 @@ console.log(fruit.devilFruitUser); // Output: 'Sabo'
  * - The class has a getter method `get temperature()` that returns the Celsius tmeperature
  *   (`this._temp`).
  * 
- * - The class has a setter method  
+ * - The class has a setter method  `set temperature(updatedTemp)` that allows you to update
+ *   the Celsius temperature by assigning a new value to the `this._temp`.
+ * 
+ * - After calling `makeClass()`, the returned `Thermostat` class is assigned to the `Thermostat`
+ *   class is assigned to the `Thermostat` variable.
+ * 
+ * - An instance of `Thermostat` named `thermos` is created with an initial Farhrenheit temperature
+ *   of 76.
+ * 
+ * - The current temperature in celsius (`thermos.temperature`) is obtained and stored in the `temp`
+ *   variable.
+ * 
+ * - The Celsius temperature is updated to 26 using the setter method (`thermos.temperature = 26`).
+ * 
+ * - The updated Celsius temperature is obtained again and stored in the `temp` variable.  
+ * 
+ * - The `temp` value is logged to the console, which represents the Celsius temperature.
+ * 
+ * Note: Notice how when we use the getter and setter, we do not have to put a parenthesis
+ * despite it functioning like a function. Instead it mimics a variable or a property name,
+ * so that means the getters and setters operate similarly to properties.
+ * 
  */
 
 function makeClass () {
@@ -2892,3 +2913,17 @@ temp = thermos.temperature;
 
 console.log(temp);
 
+/** Understand the Difference Between import and require
+ * 
+ * In the past people would use the require function to import functions and code from other files.
+ * But now we have import and export. You can export code in one file and then import it in another file.
+ * It also allows you to only import certain functions from a file or certain variables.
+ * 
+ * Note: a new file called string_function was made.
+ */
+
+import { capitaliseString } from "./string_function"
+
+const cap = capitaliseString('hello!');
+
+console.log(cap);

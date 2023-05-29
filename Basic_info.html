@@ -1711,4 +1711,19 @@ thermos.temperature = 26
 temp = thermos.temperature;
 
 console.log(temp);
+
+/** Understand the Difference Between import and require
+ * 
+ * In the past people would use the require function to import functions and code from other files.
+ * But now we have import and export. You can export code in one file and then import it in another file.
+ * It also allows you to only import certain functions from a file or certain variables.
+ * 
+ * Note: a new file called string_function was made.
+ */
+
+import { capitaliseString } from "./string_function.";
+
+const cap = capitaliseString('hello!');
+
+console.log(cap);
 </script>
