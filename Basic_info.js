@@ -2792,5 +2792,89 @@ console.log(gumgumnomi.name);
 
 /**Use getters and setters to Control Access to an Object
  * 
+ * With a class object you often want to obtain values from the object and set
+ * a value of a property within an object.
+ * 
+ * These are often called getters and setters.
+ * 
+ * getter functions are meant to simply return  or get the value of an object's 
+ * private variable to the user without the user directly accessing the private 
+ * variable. 
+ * 
+ * The class `devilFruitHolder` has a private property `._holder`, which is set during
+ * the object construction using the `constructor` method.
+ * 
+ * The getter method `get devilFruitUser()` allows you to retrieve the value of the 
+ * `_holder` property without directly accessing it. It simply returns the value of
+ * `this._holder` when you access `devilFruitUser`.
+ * 
+ * The setter method `set holder(updatedHolder)` allows you to update the value of the 
+ * `_holder` property. When you assign a value to `holder`, it invokes the setter method
+ * with the new value as the argument, and the setter updates the value of `this._holder` 
+ * accordingly.
+ * 
+ * Getters and setters allow you to encapsulate the internal state of an object and provide 
+ * controlled access to its properties. They enable you to add additional logic or perform 
+ * validation when retrieving or modifying property values, giving you more control over the 
+ * object's behaviour. They also provide you with a layer of abstraction.
+ *
+ * Note: Abstraction is a fundamental concept in programming that focuses on hiding unnecessary
+ * implentation details and exposing only the essential information or functionalities to the user.
+ * It allows you to create simplified models or representations of complex systems, making it easier
+ * to understand and work with those systems.
+ */
+
+// Example 
+
+class devilFruitHolder {
+    constructor(holder) {
+        this._holder = holder;
+    }
+
+    // getter
+    get devilFruitUser (){
+        return this._holder;
+    }
+    // setter
+    set holder(updatedHolder){
+        this._holder = updatedHolder;
+    }
+}
+
+const fruit = new devilFruitHolder('Monkey D. Luffy');
+console.log(fruit.devilFruitUser); // Output: 'Monkey D. Luffy'
+
+fruit.holder = 'Sabo';
+console.log(fruit.devilFruitUser); // Output: 'Sabo'
+
+/** Coding Challenge
+ * 
+ * Challenge: Make a getter and setter for the Thermostat class.
+ * The class should be able to accept Fahrenheit temperature, but also have
+ * a getter or setter in the class to obtain the temperature in Celcius. 
  * 
  */
+
+function makeClass () {
+    class Thermostat {
+        constructor(temp) {
+            this._temp = 5/9 * (temp - 32);
+        }
+        get temperature() {
+            return this._temp;
+        }
+        set temperature(updatedTemp){
+            this._temp = updatedTemp;
+        }
+    }
+    return Thermostat;
+}
+
+const Thermostat = makeClass();
+const thermos = new Thermostat(76);
+let temp = thermos.temperature;
+thermos.temperature = 26
+temp = thermos.temperature;
+
+console.log(temp);
+
