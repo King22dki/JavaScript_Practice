@@ -2851,8 +2851,22 @@ console.log(fruit.devilFruitUser); // Output: 'Sabo'
  * 
  * Challenge: Make a getter and setter for the Thermostat class.
  * The class should be able to accept Fahrenheit temperature, but also have
- * a getter or setter in the class to obtain the temperature in Celcius. 
+ * a getter or setter in the class to obtain the temperature in Celcius.
  * 
+ * The `makeClass()` function defines the `Thermostat` class and its constructor,
+ * getter, and setter methods. The constructor takes a temperature in Fahrenheit 
+ * and converts it to Celsius, storing it in the `_temp` property.
+ * 
+ * - The `makeClass()` function defines the `Thermostat` class and returns it.
+ * 
+ * - The `Thermostat` class has a constructor that accepts a `temp` parameter 
+ *  (temperature in Fahrenheit). It converts the Fahrenheit temperature to Celsius 
+ *  using the formula `5/9 * (temp - 32)` and assigns the result to the `_temp` property.
+ * 
+ * - The class has a getter method `get temperature()` that returns the Celsius tmeperature
+ *   (`this._temp`).
+ * 
+ * - The class has a setter method  
  */
 
 function makeClass () {
