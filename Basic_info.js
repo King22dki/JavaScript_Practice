@@ -2730,4 +2730,67 @@ console.log(bicycle.gear);
 
 /**Use class Syntax to Define a COnstructor Function
  * 
+ * ES6 provides a syntax to create object s using the class keyword.
+ * 
+ * Example 1 is the old way of creating an object where we instantiate an object 
+ * using the `new` keyword. We're instantiating the SpaceShuttle object.
+ * The constructor function takes a parameter `targetPlanet` and assigns it to 
+ * the `targetPlanet` property of the object being created. The `new` keyword is
+ * used to instantiate an instance of the `SpaceShuttle` object, with `Jupiter` being
+ * passed as the `targetPlanet` argument. The resulting object is
+ * assinged to the variable `zeus`, and accessing `zeus.targetPlanet` will log 
+ * `'Jupiter'` to the console. 
+ * 
+ * In example 2 the class syntax replaces the constructor function creation. The class
+ * has a constructor method that takes a `Fruit` parameter and assigns it to the 
+ * `Fruit` property of the object. To create an instance of the `devilFruit` 
+ * class, the `new` keyword is used with the class name, and the `Fruit` argument 
+ * is passed.
+ * 
+ * In my opioion, the class syntax is more intuitive way of defining and creating objects 
+ * when compared to the traditional way.
+ */
+
+// Example 1
+
+var SpaceShuttle = function(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+}
+
+var zeus = new SpaceShuttle('Jupiter');
+
+console.log(zeus.targetPlanet);
+
+// Example 2
+
+class devilFruits {
+    constructor(Fruit){
+        this.Fruit = Fruit;
+    }
+}
+
+var nika = new devilFruits('Gum Gum no Mi');
+
+console.log(nika.Fruit);
+
+/** Example 3
+ * 
+ */
+
+function onePiece() {
+    class DevilFruits {
+        constructor(name){
+            this.name = name;
+        }
+    }
+    return DevilFruits;
+}
+
+const DevilFruits = onePiece();
+const gumgumnomi = new DevilFruits(`gum gum no mi`);
+console.log(gumgumnomi.name);
+
+/**Use getters and setters to Control Access to an Object
+ * 
+ * 
  */
