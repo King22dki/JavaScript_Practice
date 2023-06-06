@@ -1,63 +1,37 @@
-/** A Narcissitic Number (Or Armstrong Number)
+/** Count the number of Duplicates
  * 
- * A positive number which is the sum of it's own digits,
- * rasied to the power of the number of digits in a given 
- * base. In the first example we will look at decimal (base 10).
+ * Challenge: Write a function that will return the count of distinct
+ * case-insenstive alphabetic characters and numeric digits that occur 
+ * more than once in the input string. The input string is assumed to 
+ * contain only alphabets (both uppercase and lowercae) and numeric digits.
  * 
- * For example, take 153(3 digits), which is narcissistic:
+ * Example:
  * 
- * 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153 
- * 
- * Now let's look at a number that isn't narcissistic,
- * 1652 (4 digits):
- * 
- * 1^4 + 6^4 + 5^4 + 2^4 = 1 + 1296 + 625 + 16 = 1938
- * 
- * The Challenge:
- * 
- * Your code must return true or false (not 'true' and 'false')
- * depending upon whether the given number is a Narcissistic number
- * in base 10.
+ * "abcde" --> 0 # no characters repeats more than once.
+ * "aabbcde" -> 2 # 'a' and 'b'
+ * "aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+ * "indivisibility" -> 1 # 'i' occurs six times
+ * "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+ * "aA11" -> 2 # 'a' and '1'
+ * "ABBA" -> 2 # 'A' and 'B' each occur twice
  * 
  * */
 
-function narcissisticIdentifier(number) {
-    const digits = number.toString().split('').map(Number);
-    // digits = [array of digits]
-    const digitCount = number.toString().length;
-    // digitCount = number of digits
-    let sum = 0;
 
-    for (let i = 0; i < digitCount; i++){
-        sum += digits[i] ** digitCount;
+function duplicatesCounter(args){
+    const array = args.toString().split("") // Forms an array
+    let counts = [];
+    let duplicatesCount = 0;
+
+    for (let i = 0; i < array.length; i++){
+        let element = array[i]
+        counts[element] = counts[element] ? counts[element] + 1: 1;
+        
+        if (counts[element] > 1){
+            duplicatesCount++;
+    
+        }
     }
 
-    if (sum === number){
-        return "The number is Narcissitic in the base 10";
-    } else {
-        return "The number is not Narcissitic";
-    }
+    return duplicatesCount;
 }
-
-console.log(narcissisticIdentifier(153));
-// Output: The number is Narcissitic in the base 10.
-console.log(narcissisticIdentifier(1652));
-// Output: The number is not Narcissitic.
-
-// Example that gives back a boolean
-
-function narcissisticIdentifier(number) {
-    const digits = number.toString().split('').map(Number);
-    // digits = [array of digits]
-    const digitCount = number.toString().length;
-    // digitCount = number of digits
-    let sum = 0;
-
-    for (let i = 0; i < digitCount; i++){
-        sum += digits[i] ** digitCount;
-    }
-
-    return sum === number;
-}
-console.log(narcissisticIdentifier(153));
-console.log(narcissisticIdentifier(1652));
