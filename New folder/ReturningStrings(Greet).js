@@ -1,7 +1,15 @@
 function greet(name){
-    return "Hello," + name + "how are you doing today?"
+    return "Hello, " + + name + " how are you doing today?"
   }
 
+
+// Run the tests in a browser console
+
+console.log(greet("Sanji"));
+console.log(greet("Luffy"));
+
+
+// Chai library testing
 const chai = require("chai");
 const assert = chai.assert;
 

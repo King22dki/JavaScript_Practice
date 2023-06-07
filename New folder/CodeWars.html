@@ -34,39 +34,45 @@ console.log(narcissisticIdentifier(153));
 
 console.log(narcissisticIdentifier(1652));
 
-function duplicatesCounter(args){
-    const array = args.toString().split("") // Forms an array
-    let counts = [];
-    let duplicatesCount = 0;
+function duplicatesCounter(args) {
+  // Convert input to string and split into an array
+  const array = args.toString().split(""); 
+  // Object to store element counts
+  let counts = {};
+  // Counter for duplicate elements
+  let duplicatesCount = 0;
 
-    for (let i = 0; i < array.length; i++){
-        let element = array[i].toLowerCase();
-        counts[element] = counts[element] ? counts[element] + 1: 1;
-        
-        if (counts[element] > 1){
-            duplicatesCount++;
-    
-        }
+  for (let i = 0; i < array.length; i++) {
+    // Convert element to lowercase  
+    let element = array[i].toLowerCase();
+    //Increment element count or set it to 1 if not exists 
+    counts[element] = counts[element] ? counts[element] + 1 : 1;
+    // Check if element count is 2 (duplicate)
+    if (counts[element] === 2) {
+      // Increment duplicate count
+      duplicatesCount++;
     }
-
-    return duplicatesCount;
+  }
+  // Return the total count of duplicates 
+  return duplicatesCount;
 }
 
-const { assert } = require('chai');
+// Run the tests in a browser console
+console.log(duplicatesCounter("")); // 0
+console.log(duplicatesCounter("abcde")); // 0
+console.log(duplicatesCounter("aabbcde")); // 2
+console.log(duplicatesCounter("aabBcde")); // 2
+console.log(duplicatesCounter("Indivisibility")); // 1
+console.log(duplicatesCounter("Indivisibilities")); // 2
 
-describe("Tests", () => {
-  it("test", () => {
-    assert.strictEqual(duplicateCounter(""), 0);
-    assert.strictEqual(duplicateCounter("abcde"), 0);
-    assert.strictEqual(duplicateCounter("aabbcde"), 2);
-    assert.strictEqual(duplicateCounter("aabBcde"), 2,"should ignore case");
-    assert.strictEqual(duplicateCounter("Indivisibility"), 1)
-    assert.strictEqual(duplicateCounter("Indivisibilities"), 2, "characters may not be adjacent")
-  });
-});
+function greet(name){
+    return "Hello, " + name + " how are you doing today?"
+  }
 
 
-console.log(duplicatesCounter(""));
+// Run the tests in a browser console
 
+console.log(greet("Sanji"));
+console.log(greet("Luffy"));
 
 </script>

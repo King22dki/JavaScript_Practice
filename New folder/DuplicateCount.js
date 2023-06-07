@@ -56,6 +56,23 @@ function duplicatesCounter(args) {
     // Return the total count of duplicates 
     return duplicatesCount;
   }
+  /** 
+   * The `require` function is commonly used in Node.js to import modules.
+   * However, it is not avaiable in all JavaScript enviroments, such as the 
+   * browser or certain online code editors. If you're running this code in a 
+   * browser enviroment or an online code editor, you won't be able to use 
+   * `require` to import the `chai` library for testing.
+   * 
+   */
+
+  // Run the tests in a browser console
+  console.log(duplicatesCounter("")); // 0
+  console.log(duplicatesCounter("abcde")); // 0
+  console.log(duplicatesCounter("aabbcde")); // 2
+  console.log(duplicatesCounter("aabBcde")); // 2
+  console.log(duplicatesCounter("Indivisibility")); // 1
+  console.log(duplicatesCounter("Indivisibilities")); // 2
+  
   
   const { assert } = require('chai');
   
