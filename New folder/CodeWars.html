@@ -52,6 +52,20 @@ function duplicatesCounter(args){
     return duplicatesCount;
 }
 
+const { assert } = require('chai');
+
+describe("Tests", () => {
+  it("test", () => {
+    assert.strictEqual(duplicateCounter(""), 0);
+    assert.strictEqual(duplicateCounter("abcde"), 0);
+    assert.strictEqual(duplicateCounter("aabbcde"), 2);
+    assert.strictEqual(duplicateCounter("aabBcde"), 2,"should ignore case");
+    assert.strictEqual(duplicateCounter("Indivisibility"), 1)
+    assert.strictEqual(duplicateCounter("Indivisibilities"), 2, "characters may not be adjacent")
+  });
+});
+
+
 console.log(duplicatesCounter(""));
 
 
