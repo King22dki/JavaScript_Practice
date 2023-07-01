@@ -1,7 +1,7 @@
 class Sensor{
     constructor(car){
         this.car = car;
-        this.rayCount = 15;
+        this.rayCount = 7;
         this.rayLength = 150;
         this.raySpread = Math.PI/2; // 45 degree angle
 
@@ -49,7 +49,7 @@ class Sensor{
             }
         }
 
-        if(touches.lenght == 0){
+        if(touches.length == 0){
             return null;
         }else{
             const offsets = touches.map(e => e.offset);
