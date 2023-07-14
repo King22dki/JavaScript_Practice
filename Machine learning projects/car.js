@@ -6,11 +6,14 @@
  */
 class Car {
   constructor(x, y, width, height, controlType, maxSpeed=3) {
+    
+    // Initialise car properties
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
 
+    // Initialise car physics parameters
     this.speed = 0;
     this.acceleration = 0.2;
     this.maxSpeed = maxSpeed;
@@ -18,6 +21,7 @@ class Car {
     this.angle = 0; // Initialize the angle property
     this.damaged = false;
 
+    // Set control type
     this.useBrain=controlType=="AI";
     
     if(controlType!="DUMMY"){
@@ -26,22 +30,26 @@ class Car {
         [this.sensor.rayCount, 6, 4]
       );
     }
+
+    // Create controls instance
     this.controls = new Controls(controlType);
   }
 
   update(roadBorders, traffic) {
+    // Update car position, collision detection, and damage assessment
     if(!this.damaged){
       this.#move();
       this.polygon = this.#createPolygon();
       this.damaged=this.#assessDamage(roadBorders, traffic);
     }
+
+    // Update sensor readings and control outputs (if applicable)
     if(this.sensor){
       this.sensor.update(roadBorders, traffic);
       const offsets = this.sensor.readings.map(
         s=>s==null?0:1-s.offset
       );
       const  outputs=NeuralNetwork.feedforward(offsets, this.brain)
-      console.log(outputs);
 
       if(this.useBrain){
         this.controls.forward=outputs[0];
@@ -54,6 +62,7 @@ class Car {
 
     
   #assessDamage(roadBorders, traffic){
+    // Check for collisions with road borders and other traffic
     for(let i=0; i<roadBorders.length; i++){
       if(polyIntersect(this.polygon, roadBorders[i])){
         return true;
@@ -67,6 +76,7 @@ class Car {
     return false
   }
   #createPolygon(){
+    // Create the car's polygon shape based on its positions and dimensions
     const points = [];
     const rad=Math.hypot(this.width,this.height)/2;
     const alpha = Math.atan2(this.width, this.height);
@@ -91,6 +101,7 @@ class Car {
   }
 
     #move(){
+      // Update the car's position based on its speed, accelerarion and controls 
       if (this.controls.forward) {
         this.speed += this.acceleration;
       }
@@ -130,6 +141,7 @@ class Car {
   }  
 
     draw(ctx, colour, drawSensor=false) {
+      // Draw the car on the canvas 
       if (this.damaged){
         ctx.fillStyle="purple";
       }else{
