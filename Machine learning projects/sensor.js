@@ -22,6 +22,7 @@ class Sensor{
     #getReading(ray, roadBorders, traffic){
         let touches = [];
 
+        // Check for intersection with road borders
         for(let i=0; i < roadBorders.length; i++){
             const touch = getIntersection(
                 ray[0],
@@ -34,6 +35,7 @@ class Sensor{
             }
         }
 
+        // Check for intersections with traffic polygons
         for(let i=0; i < traffic.length; i++){
             const poly = traffic[i].polygon;
             for(let j=0; j<poly.length;j++){
@@ -52,6 +54,7 @@ class Sensor{
         if(touches.length == 0){
             return null;
         }else{
+            // Find the intersection with minimum offset
             const offsets = touches.map(e => e.offset);
             const minOffset = Math.min(...offsets);
             return touches.find(e=>e.offset == minOffset);
@@ -86,6 +89,7 @@ class Sensor{
                 end=this.readings[i];
             }
 
+            // Draw the ray
             ctx.beginPath();
             ctx.lineWidth = 2;
             ctx.strokeStyle = "yellow";
@@ -97,7 +101,9 @@ class Sensor{
                 end.x,
                 end.y
             );
-            ctx.stroke();            
+            ctx.stroke();
+            
+            // Draw the line connecting the end point of the ray to the car
             ctx.beginPath();
             ctx.lineWidth = 2;
             ctx.strokeStyle = "black";
