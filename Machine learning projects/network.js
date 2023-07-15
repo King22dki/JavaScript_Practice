@@ -9,6 +9,7 @@ class NeuralNetwork{
         }
     }
 
+    // Perform feedfoward propagation through the network
     static feedforward(givenInputs, network){
         let outputs = Level.feedforward(
             givenInputs,network.levels[0]);
@@ -20,6 +21,7 @@ class NeuralNetwork{
         return outputs;
     }
 
+    // Mutate the network by randomly modifying the weights and biases
     static mutate(network, amount=1){
         network.levels.forEach(level =>{
             for(let i=0; i<level.biases.length; i++){
@@ -57,8 +59,11 @@ class Level{
 
     }
 
-    // Methods don't serialise the object, hence why we are using static.
-
+    /**
+     * Methods don't serialise the object, hence why we are using static.
+     * 
+     * Randomly Initiialise the weights and biases of the level
+     */
     static #randomise(level){
         for(let i=0; i<level.inputs.length; i++){
             for(let j=0; j<level.outputs.length; j++){
@@ -71,6 +76,7 @@ class Level{
         }
     }
 
+    // Perfrom feedfoward propagation within the level
     static feedforward(givenInputs, level) {
         for (let i = 0; i < level.inputs.length; i++) {
           level.inputs[i] = givenInputs[i];
@@ -81,7 +87,8 @@ class Level{
           for (let j = 0; j < level.inputs.length; j++) {
             sum += level.inputs[j] * level.weights[j][i];
           }
-    
+
+          // Simple activation function: binary output based on threshold
           if (sum > level.biases[i]) {
             level.outputs[i] = 1;
           } else {

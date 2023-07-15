@@ -21,6 +21,10 @@ if(localStorage.getItem("bestBrain")){
 }
 
 const traffic = [
+    /**
+     * Define traffic cars with their initial positions and properties
+     * More traffic cars can be added as needed
+     */
     new Car(road.getLaneCenter(1), -100, 30, 50,"DUMMY", 2),
     new Car(road.getLaneCenter(0), -300, 30, 50,"DUMMY", 2),   
     new Car(road.getLaneCenter(1), -100, 30, 50,"DUMMY", 2),
@@ -52,28 +56,39 @@ function generateCars(N){
     const cars = [];
     for(let i=1; i<=N; i++){
         cars.push(new Car(road.getLaneCenter(1), 100, 30, 50, "AI"));
+        /**
+         * Generate cars with their initial positions and properties
+         * More cars can be added as needed
+         */
     }
     return cars;
 }
 
 function animate(time){
+    // Update positions and states of traffic cars
     for(let i=0; i<traffic.length; i++){
         traffic[i].update(road.borders, []);
     }
+    // Update positions and states of AI cars
     for(let i=0; i<cars.length;i++){
         cars[i].update(road.borders,traffic);
     }
+    // Find the best car based on its position (fitness function)
     bestCar=cars.find(
         c=>c.y==Math.min(
             ...cars.map(c=>c.y)
         )
     ); // modern syntax - this is also an example of a fitness function.
+    
+    // Adjust canvas heights based on the best car's position 
     carCanvas.height=window.innerHeight;
     networkCanvas.height=window.innerHeight;
 
+    // Translate the car canvas to focus on the best car
     carCtx.save();
     carCtx.translate(0, -bestCar.y+carCanvas.height*0.7);
 
+    // Draw the road, traffic cars, AI cars, and the best car
     road.draw(carCtx);
     for(let i= 0; i<traffic.length;i++){
         traffic[i].draw(carCtx, "purple");
@@ -88,8 +103,11 @@ function animate(time){
 
     carCtx.restore();
 
+    // Update and draw the neural network visulaisation for the best car
     networkCtx.lineDashOffset=-time/50; 
     // it is feedfoward algorithim, hence the minus
     Visualiser.drawNetwork(networkCtx, bestCar.brain);
+
     requestAnimationFrame(animate);
+    // Recursive function to continuously animate the simulation
 }
