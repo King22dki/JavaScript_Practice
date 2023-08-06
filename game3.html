@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic 3D Game with Three.js</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <label for="shape-select">Select Shape:</label>
+  <select id="shape-select">
+    <option value="cube">Cube</option>
+    <option value="sphere">Sphere</option>
+    <option value="torus">Torus</option>
+  </select>
+
+  <label for="color-select">Select Color:</label>
+  <select id="color-select">
+    <option value="0x00ff00">Green</option>
+    <option value="0xff0000">Red</option>
+    <option value="0x0000ff">Blue</option>
+  </select>
+
+  <script src="https://threejs.org/build/three.min.js"></script>
+  <script>
+    // Set up the scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Initial values for shape and color
+    let currentShape = "cube";
+    let currentColor = 0x00ff00;
+
+    // Function to create the 3D object
+    function createObject(shape, color) {
+      let geometry, material, mesh;
+
+      switch (shape) {
+        case "cube":
+          geometry = new THREE.BoxGeometry();
+          break;
+        case "sphere":
+          geometry = new THREE.SphereGeometry();
+          break;
+        case "torus":
+          geometry = new THREE.TorusGeometry();
+          break;
+        default:
+          geometry = new THREE.BoxGeometry();
+          break;
+      }
+
+      material = new THREE.MeshBasicMaterial({ color });
+      mesh = new THREE.Mesh(geometry, material);
+
+      return mesh;
+    }
+
+    // Function to handle shape selection change
+    function handleShapeChange(event) {
+      currentShape = event.target.value;
+      scene.remove(cube);
+      cube = createObject(currentShape, currentColor);
+      scene.add(cube);
+    }
+
+    // Function to handle color selection change
+    function handleColorChange(event) {
+      currentColor = parseInt(event.target.value);
+      scene.remove(cube);
+      cube = createObject(currentShape, currentColor);
+      scene.add(cube);
+    }
+
+    // Add event listeners to the dropdowns
+    const shapeSelect = document.getElementById("shape-select");
+    shapeSelect.addEventListener("change", handleShapeChange);
+
+    const colorSelect = document.getElementById("color-select");
+    colorSelect.addEventListener("change", handleColorChange);
+
+    // Create the initial 3D object (cube)
+    let cube = createObject(currentShape, currentColor);
+    scene.add(cube);
+
+    // Set the initial camera position
+    camera.position.z = 5;
+
+    // Function to animate the scene
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Rotate the cube
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+
+      renderer.render(scene, camera);
+    }
+
+    // Start the animation
+    animate();
+  </script>
+</body>
+</html>
