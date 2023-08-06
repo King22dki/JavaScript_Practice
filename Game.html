@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guessing Game</title>
+</head>
+<body>
+  <script>
+    // Function to generate a random number between 1 and 100
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 100) + 1;
+    }
+
+    // Main game function
+    function playGame() {
+      const secretNumber = getRandomNumber();
+      let guess;
+      let attempts = 0;
+
+      while (true) {
+        guess = prompt('Guess a number between 1 and 100:');
+
+        if (guess === null) {
+          alert('Goodbye!');
+          break;
+        }
+
+        attempts++;
+
+        const parsedGuess = parseInt(guess);
+
+        if (isNaN(parsedGuess)) {
+          alert('Please enter a valid number.');
+        } else if (parsedGuess < 1 || parsedGuess > 100) {
+          alert('Please enter a number between 1 and 100.');
+        } else if (parsedGuess === secretNumber) {
+          alert(`Congratulations! You guessed the secret number ${secretNumber} in ${attempts} attempts.`);
+          break;
+        } else if (parsedGuess < secretNumber) {
+          alert('Too low! Try again.');
+        } else {
+          alert('Too high! Try again.');
+        }
+      }
+    }
+
+    // Start the game when the page loads
+    playGame();
+  </script>
+</body>
+</html>

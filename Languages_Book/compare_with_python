@@ -1,0 +1,12 @@
+// Variable declaration and assignment
+let x = 10;
+let y = 5;
+
+// Conditional statement
+if (x > y) {
+    // Code block executed if x is greater than y
+    console.log("x is greater than y");
+} else {
+    // Code block executed if x is not greater than y
+    console.log("x is not greater than y");
+}
