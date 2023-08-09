@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3D Open World Game with Card Magic</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://threejs.org/build/three.min.js"></script>
+  <script src="path/to/PointerLockControls.js"></script>
+  <script>
+    // Set up the scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Create a character (simple cube for demonstration purposes)
+    const characterGeometry = new THREE.BoxGeometry();
+    const characterMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const character = new THREE.Mesh(characterGeometry, characterMaterial);
+    scene.add(character);
+
+    // Set the initial camera position
+    camera.position.set(0, 5, 10);
+    camera.lookAt(character.position);
+
+    // Basic controls to move the character
+    const controls = new THREE.PointerLockControls(camera, document.body);
+    scene.add(controls.getObject());
+
+    // Simple terrain (plane) for the open world
+    const terrainGeometry = new THREE.PlaneGeometry(100, 100);
+    const terrainMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00, side: THREE.DoubleSide });
+    const terrain = new THREE.Mesh(terrainGeometry, terrainMaterial);
+    terrain.rotation.x = -Math.PI / 2;
+    scene.add(terrain);
+
+    // Card System
+    const cards = {
+      fireball: { type: "attack", power: 10 },
+      heal: { type: "healing", power: 20 },
+      shield: { type: "defense", power: 0 },
+    };
+
+    // Function to cast a card
+    function castCard(card) {
+      switch (card.type) {
+        case "attack":
+          // Implement attack logic here
+          console.log(`Casting Fireball! Deals ${card.power} damage.`);
+          break;
+        case "healing":
+          // Implement healing logic here
+          console.log(`Casting Heal! Restores ${card.power} health.`);
+          break;
+        case "defense":
+          // Implement defense logic here
+          console.log(`Casting Shield! Provides protection.`);
+          break;
+        default:
+          console.log(`Unknown card type: ${card.type}`);
+          break;
+      }
+    }
+
+    // Event listener to handle keypress
+    document.addEventListener("keypress", (event) => {
+      if (event.key === "1") {
+        castCard(cards.fireball);
+      } else if (event.key === "2") {
+        castCard(cards.heal);
+      } else if (event.key === "3") {
+        castCard(cards.shield);
+      }
+    });
+
+    // Function to animate the scene
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Perform any character movement logic here
+      // For simplicity, we will not implement character movement in this example.
+
+      renderer.render(scene, camera);
+    }
+
+    // Start the animation
+    animate();
+  </script>
+</body>
+</html>
+
