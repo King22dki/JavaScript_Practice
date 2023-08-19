@@ -30,6 +30,10 @@ class Boundary {
 }
 
 const boundaries = [];
+const offset = {
+  x: -790,
+  y: -400
+}
 
 collisionsMap.forEach((row, i) =>{
   row.forEach((symbol, j)=> {
@@ -37,15 +41,15 @@ collisionsMap.forEach((row, i) =>{
     boundaries.push(
       new Boundary({
         position: {
-          x: j * Boundary.width,
-          y: i * Boundary.height
+          x: j * Boundary.width + offset.x,
+          y: i * Boundary.height + offset.y
         }
       })
     )
   })
 })
-
 console.log(boundaries);
+
 // Load an image to draw on the canvas
 const image = new Image();
 image.src = './img/Pokemon Style map 1.png';
@@ -65,8 +69,8 @@ class Sprite {
 
 const background = new Sprite({
   position: {
-    x: -790,
-    y: -400
+    x: offset.x,
+    y: offset.y
   },
   image: image
 });
@@ -94,6 +98,10 @@ function animate() {
   // Draw the background image on the canvas
   background.draw();
 
+  // Drawing in the boundaries
+boundaries.forEach(boundary => {
+  boundary.draw();
+})
   // Draw the player image on the canvas with cropping and adjustments
   const x2 = canvas.width / 2;
   const y2 = canvas.height / 2;
