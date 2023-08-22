@@ -59,13 +59,43 @@ const playerImage = new Image();
 playerImage.src = './img/playerDown.png';
 
 class Sprite {
-  constructor({position, velocity, image}) {
+  constructor({position, velocity, image, frames = {max:1}}) {
     this.position = position;
+    this.image = image;
+    this.frames = frames;
+
+    this.image.onload = () => {
+      this.width = this.image.width / this.frames.max,
+      this.height = this.image.width / this.frames.max
+    }
   }
   draw () {
-    context.drawImage(image, this.position.x, this.position.y);
+    context.drawImage(
+      this.image,
+      0,
+      0,
+      this.image.width/this.frames.max,
+      this.image.height,
+      this.position.x,
+      this.position.y,
+      this.image.width / this.frames.max,
+      this.image.height 
+      );
   }
 }
+
+const x2 = canvas.width / 2;
+const y2 = canvas.height / 2;
+const player = new Sprite({
+  position: {
+    x: x2 + 68 + playerImage.width / 3,
+    y: y2
+  },
+  image: playerImage,
+  frames: {
+    max: 4
+  } 
+});
 
 const background = new Sprite({
   position: {
@@ -90,6 +120,8 @@ const keys = {
   }
   
 };
+// Refactoring for movables
+const movables = {background, boundaries};
 
 // Creating an infinite loop for animate
 function animate() {
@@ -102,27 +134,26 @@ function animate() {
 boundaries.forEach(boundary => {
   boundary.draw();
 })
-  // Draw the player image on the canvas with cropping and adjustments
-  const x2 = canvas.width / 2;
-  const y2 = canvas.height / 2;
-  context.drawImage(
-    playerImage,
-    // Cropping beginning
-    0, // crop position
-    0, // crop position
-    playerImage.width / 4,
-    playerImage.height,
-    // Actual Image - End of cropping
-    x2 + playerImage.width / 3,
-    y2,
-    playerImage.width / 4,
-    playerImage.height
-  );
+player.draw();
 
-  if (keys.w.pressed) background.position.y += 2;
-  else if (keys.s.pressed) background.position.y -= 2;
-  else if (keys.a.pressed) background.position.x += 2;
-  else if (keys.d.pressed) background.position.x -= 2;
+if (player.position.x + player.width >= boundary.position.x && player.position.x <=boundary.position.x + boundary.width)
+
+  if (keys.w.pressed){
+    movables.forEach((movable) =>{
+      movable.position.y +=2
+    })}
+  else if (keys.s.pressed) {
+    movables.forEach((movable) =>{
+      movable.position.y -=2
+    })}
+  else if (keys.a.pressed) {
+    movables.forEach((movable) =>{
+      movable.position.x +=2
+    })}
+  else if (keys.d.pressed) {
+    movables.forEach((movable) =>{
+      movable.position.y -=2
+    })}
 
 }
 
