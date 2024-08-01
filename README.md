@@ -1,34 +1,3 @@
-
-Create a new file in your repository named README.md if it doesn't already exist.
-Copy the content from the artifact above into this file.
-Commit and push the changes to your GitHub repository.
-Remember to replace "[insert video title or link here]" with the actual title or link of the video you're currently using for learning.
-
-This README will give visitors to your repository a clear understanding of your JavaScript learning journey and the projects you're working on. It also invites collaboration and feedback, which can be valuable for your learning process.
-
-Is there anything you'd like to add or modify in this README?
-
-Copy
-Retry
-
-
-Claude can make mistakes. Please double-check responses.
-
-
-
-
-
-3.5 Sonnet
-1
-1 message remaining until 4 AM
-Subscribe to Pro
-Subscribe to Pro for 5x more usage with Claude 3.5 Sonnet.
-
-Subscribe to Pro
-
-
-Updated JavaScript Practice README
-
 # JavaScript Practice
 
 This repository serves as a means for me to practice JavaScript for use in web development. I'm starting from the basics and gradually working my way up to more advanced concepts.
@@ -44,7 +13,7 @@ This repository serves as a means for me to practice JavaScript for use in web d
 
 ## Learning Resources
 
-Currently, I'm working through [insert video title or link here]. This video is helping me build a strong foundation in JavaScript.
+Currently, I'm working through (https://www.youtube.com/watch?v=PkZNo7MFNFg). This video is helping me build a strong foundation in JavaScript.
 
 ## Projects
 
